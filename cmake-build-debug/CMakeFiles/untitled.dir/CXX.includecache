@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lluks/CLionProjects/untitled/ImageClassTester.cpp
+stdio.h
+-
+iostream
+-
+MyImage.h
+/home/lluks/CLionProjects/untitled/MyImage.h
+MyHisto.h
+/home/lluks/CLionProjects/untitled/MyHisto.h
+time.h
+-
+
+/home/lluks/CLionProjects/untitled/MyHisto.h
+fstream
+-
+
+/home/lluks/CLionProjects/untitled/MyImage.h
+MyHisto.h
+/home/lluks/CLionProjects/untitled/MyHisto.h
+fstream
+-
+
