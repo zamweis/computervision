@@ -262,18 +262,20 @@ unsigned char CMyImage::GetPixel(int x, int y) const {
 
 void CMyImage::Invert() {
     int size = m_width * m_height;
-    for (int i = 0; i < size; i++) {
-        m_pData[i] = 255 - m_pData[i];
+    unsigned char *end = m_pData + size;
+    for (unsigned char *p = m_pData; p != end; ++p) {
+        *p = 255 - *p;
     }
 }
 
 void CMyImage::MakeBinary(int thresh) {
     int size = m_width * m_height;
-    for (int i = 0; i < size; i++) {
-        if (m_pData[i] <= thresh) {
-            m_pData[i] = 0;
+    unsigned char *end = m_pData + size;
+    for (unsigned char *p = m_pData; p != end; ++p) {
+        if (*p <= thresh) {
+            *p = 0;
         } else {
-            m_pData[i] = 255;
+            *p = 255;
         }
     }
 }
