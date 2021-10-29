@@ -290,11 +290,25 @@ void CMyImage::CalcHisto(CMyHisto &histo) const {
     histo.Reset();
     int size = m_width * m_height;
     for (int i = 0; i < size; i++) {
+        // increment every match in histo
         histo.Increment(m_pData[i]);
     }
 }
 
 int CMyImage::CalcThreshByOtsu() const {
-    return 0;
-
+    // todo
+    CMyHisto histo; // Histogramm, Zugriff z.B. via
+    CalcHisto(histo); // double histo.GetEntry(q)
+    double sigmaB = 0.0;
+    double maxSigmaB = -1.0;
+    int T;
+    int TStar = -1;
+    for (T = 0; T < 255; T++) {
+        if (sigmaB > maxSigmaB) {
+            maxSigmaB = sigmaB;
+            TStar = T;
+        }
+    }
+    return TStar;
 }
+
