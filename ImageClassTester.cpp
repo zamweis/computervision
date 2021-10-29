@@ -22,9 +22,10 @@ int main(int argc, char *argv[]) {
     int width = testImage.GetWidth();
     int height = testImage.GetHeight();
 
-
+    /*
     cout << "height: " + std::to_string(height);
     cout << "\nwidth: " + std::to_string(width) + "\n";
+    */
 
     // invert image with getter
     start = clock();
