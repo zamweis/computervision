@@ -1,6 +1,7 @@
 #include "MyImage.h"
 #include "math.h"
 #include <cstring>
+
 using namespace std;
 
 CMyImage::CMyImage(void) {
@@ -230,19 +231,19 @@ bool CMyImage::WriteBmpFile(const char *fileName) const {
 void CMyImage::Copy(const CMyImage &toCopy) {
     Resize(toCopy.m_width, toCopy.m_height);
     // copy toCopy.m_pData wich got the size m_width*m_height
-    memcpy(m_pData, toCopy.m_pData, m_width*m_height);
+    memcpy(m_pData, toCopy.m_pData, m_width * m_height);
 }
 
 void CMyImage::Resize(int width, int height) {
     // if resizing with the same dimensions
-    if(width != m_width && height != m_height){
+    if (width != m_width && height != m_height) {
         // clear memory
         free(m_pData);
         m_width = 0;
         m_height = 0;
         int size = height * width;
         if (size > 0) {
-            m_pData = (unsigned char*)malloc(size * sizeof(unsigned char));
+            m_pData = (unsigned char *) malloc(size * sizeof(unsigned char));
             // set new dimensions
             m_width = width;
             m_height = height;
@@ -260,15 +261,33 @@ bool CMyImage::IsEmpty() const {
 }
 
 void CMyImage::SetPixel(int x, int y, unsigned char value) {
-    m_pData[m_width*y + x] = value;
+    m_pData[m_width * y + x] = value;
 }
 
 unsigned char CMyImage::GetPixel(int x, int y) const {
-    return m_pData[m_width*y + x];
+    return m_pData[m_width * y + x];
 }
 
 void CMyImage::Invert() {
     for (int i = 0; i < m_width * m_height; i++) {
         m_pData[i] = 255 - m_pData[i];
     }
+}
+
+void CMyImage::MakeBinary(int thresh) {
+    for (int i = 0; i < m_width * m_height; i++) {
+        if (m_pData[i] <= thresh) {
+            m_pData[i] = 0;
+        } else {
+            m_pData[i] = 255;
+        }
+    }
+}
+
+void CMyImage::CalcHisto(CMyHisto &histo) const {
+
+}
+
+int CMyImage::CalcThreshByOtsu() const {
+
 }
