@@ -7,16 +7,24 @@
 #include "MyHisto.h"
 #include <time.h>
 
+#define ABSOLUTE
+
 int main(int argc, char *argv[]) {
     // resize image
-
+#ifdef ABSOLUTE
+    string loadPath = "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/Bilder/";
+    string savePath = "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/";
+#else
+    char* loadPath = "./Bilder/";
+    char*  savePath = "./out/";
+#endif
     CMyImage testImage = CMyImage();
-    testImage.ReadBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/Bilder/Kap.bmp");
+    testImage.ReadBmpFile(((string(loadPath).append("Kap.bmp")).c_str()));
     testImage.Resize(20, 20);
-    testImage.WriteBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/resize.bmp");
+    testImage.WriteBmpFile((string(savePath).append("resize.bmp")).c_str());
 
     // get image (Kap.bmp)
-    testImage.ReadBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/Bilder/Kap.bmp");
+    testImage.ReadBmpFile((string(loadPath).append("Kap.bmp")).c_str());
     clock_t start, finish, startDirectAccess, finishDirectAccess;
 
     int width = testImage.GetWidth();
@@ -40,7 +48,7 @@ int main(int argc, char *argv[]) {
     finish = clock();
     double indirectAccessTime = (double)(finish - start) / CLOCKS_PER_SEC;
     // write image for check
-    testImage.WriteBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/getter.bmp");
+    testImage.WriteBmpFile((string(savePath).append("getter.bmp")).c_str());
 
 
     // invert image with pointer memory access
@@ -53,7 +61,7 @@ int main(int argc, char *argv[]) {
     finishDirectAccess = clock();
     double directAccessTime = (double)(finishDirectAccess - startDirectAccess) / CLOCKS_PER_SEC;
     // write image for check (image should look like source image again)
-    testImage.WriteBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/direct.bmp");
+    testImage.WriteBmpFile((string(savePath).append("direct.bmp")).c_str());
 
     // print results
     cout << "\nindirectAccessTime: " + std::to_string(indirectAccessTime) + " seconds\n";
