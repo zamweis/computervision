@@ -11,23 +11,24 @@ int main(int argc, char *argv[]) {
     // resize image
 
     CMyImage testImage = CMyImage();
-    testImage.ReadBmpFile("/home/lluks/CLionProjects/untitled/Bilder/Kap.bmp");
+    testImage.ReadBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/Bilder/Kap.bmp");
     testImage.Resize(20, 20);
-    testImage.WriteBmpFile("/home/lluks/CLionProjects/untitled/out/resize.bmp");
+    testImage.WriteBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/resize.bmp");
 
     // get image (Kap.bmp)
-    testImage.ReadBmpFile("/home/lluks/CLionProjects/untitled/Bilder/Kap.bmp");
+    testImage.ReadBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/Bilder/Kap.bmp");
     clock_t start, finish, startDirectAccess, finishDirectAccess;
 
     int width = testImage.GetWidth();
     int height = testImage.GetHeight();
+
+
+    cout << "height: " + std::to_string(height);
+    cout << "\nwidth: " + std::to_string(width) + "\n";
+
     // invert image with getter
     start = clock();
 
-    /*
-    cout << "height: " + std::to_string(height);
-    cout << "\nwidth: " + std::to_string(width) + "\n";
-    */
 
     // set all pixels manually
     for (int i = 0; i < width; i++) {
@@ -38,7 +39,7 @@ int main(int argc, char *argv[]) {
     finish = clock();
     double indirectAccessTime = (double)(finish - start) / CLOCKS_PER_SEC;
     // write image for check
-    testImage.WriteBmpFile("/home/lluks/CLionProjects/untitled/out/getter.bmp");
+    testImage.WriteBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/getter.bmp");
 
 
     // invert image with pointer memory access
@@ -51,7 +52,7 @@ int main(int argc, char *argv[]) {
     finishDirectAccess = clock();
     double directAccessTime = (double)(finishDirectAccess - startDirectAccess) / CLOCKS_PER_SEC;
     // write image for check (image should look like source image again)
-    testImage.WriteBmpFile("/home/lluks/CLionProjects/untitled/out/direct.bmp");
+    testImage.WriteBmpFile("/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/direct.bmp");
 
     // print results
     cout << "\nindirectAccessTime: " + std::to_string(indirectAccessTime) + " seconds\n";

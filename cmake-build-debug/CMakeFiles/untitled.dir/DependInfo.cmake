@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lluks/CLionProjects/untitled/ImageClassTester.cpp" "/home/lluks/CLionProjects/untitled/cmake-build-debug/CMakeFiles/untitled.dir/ImageClassTester.cpp.o"
-  "/home/lluks/CLionProjects/untitled/MyHisto.cpp" "/home/lluks/CLionProjects/untitled/cmake-build-debug/CMakeFiles/untitled.dir/MyHisto.cpp.o"
-  "/home/lluks/CLionProjects/untitled/MyImage.cpp" "/home/lluks/CLionProjects/untitled/cmake-build-debug/CMakeFiles/untitled.dir/MyImage.cpp.o"
+  "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/ImageClassTester.cpp" "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir/ImageClassTester.cpp.o"
+  "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp" "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir/MyHisto.cpp.o"
+  "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.cpp" "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir/MyImage.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
