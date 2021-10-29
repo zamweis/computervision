@@ -20,25 +20,18 @@ int main(int argc, char *argv[]) {
 #endif
     CMyImage testImage = CMyImage();
     testImage.ReadBmpFile(((string(loadPath).append("Kap.bmp")).c_str()));
+
+    // resize image
     testImage.Resize(20, 20);
     testImage.WriteBmpFile((string(savePath).append("resize.bmp")).c_str());
 
-    // get image (Kap.bmp)
+    // invert image with getter
     testImage.ReadBmpFile((string(loadPath).append("Kap.bmp")).c_str());
     clock_t start, finish, startDirectAccess, finishDirectAccess;
 
     int width = testImage.GetWidth();
     int height = testImage.GetHeight();
-
-    /*
-    cout << "height: " + std::to_string(height);
-    cout << "\nwidth: " + std::to_string(width) + "\n";
-    */
-
-    // invert image with getter
     start = clock();
-
-
     // set all pixels manually
     for (int i = 0; i < width; i++) {
         for (int j = 0; j < height; j++) {
@@ -49,7 +42,6 @@ int main(int argc, char *argv[]) {
     double indirectAccessTime = (double)(finish - start) / CLOCKS_PER_SEC;
     // write image for check
     testImage.WriteBmpFile((string(savePath).append("getter.bmp")).c_str());
-
 
     // invert image with pointer memory access
     startDirectAccess = clock();
@@ -67,5 +59,18 @@ int main(int argc, char *argv[]) {
     cout << "\nindirectAccessTime: " + std::to_string(indirectAccessTime) + " seconds\n";
     cout << "directAccessTime: " + std::to_string(directAccessTime) + " seconds\n";
     cout << "factor: " + std::to_string(indirectAccessTime/directAccessTime) + "\n";
+
+    // makeBinary
+    testImage.ReadBmpFile((string(loadPath).append("Kap.bmp")).c_str());
+    testImage.MakeBinary(150);
+    // write image for check
+    testImage.WriteBmpFile((string(savePath).append("makeBinary.bmp")).c_str());
+
+    // calcHisto
+    testImage.ReadBmpFile((string(loadPath).append("Zellen1.bmp")).c_str());
+    CMyHisto histo = CMyHisto();
+    testImage.CalcHisto(histo);
+    // write image for check
+    histo.WriteHistoBmp((string(savePath).append("calcHisto.bmp")).c_str());
     return 0;
 }

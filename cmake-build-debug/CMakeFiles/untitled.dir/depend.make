@@ -7,6 +7,7 @@ CMakeFiles/untitled.dir/ImageClassTester.cpp.o: ../MyImage.h
 
 CMakeFiles/untitled.dir/MyHisto.cpp.o: ../MyHisto.cpp
 CMakeFiles/untitled.dir/MyHisto.cpp.o: ../MyHisto.h
+CMakeFiles/untitled.dir/MyHisto.cpp.o: ../MyImage.h
 
 CMakeFiles/untitled.dir/MyImage.cpp.o: ../MyHisto.h
 CMakeFiles/untitled.dir/MyImage.cpp.o: ../MyImage.cpp

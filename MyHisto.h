@@ -34,4 +34,6 @@ public:
     int GetEntry(int i) const;
 
     double GetNormalizedEntry(int i) const;
+
+    void WriteHistoBmp(const char *fileName);
 };

@@ -269,13 +269,15 @@ unsigned char CMyImage::GetPixel(int x, int y) const {
 }
 
 void CMyImage::Invert() {
-    for (int i = 0; i < m_width * m_height; i++) {
+    int size = m_width * m_height;
+    for (int i = 0; i < size; i++) {
         m_pData[i] = 255 - m_pData[i];
     }
 }
 
 void CMyImage::MakeBinary(int thresh) {
-    for (int i = 0; i < m_width * m_height; i++) {
+    int size = m_width * m_height;
+    for (int i = 0; i < size; i++) {
         if (m_pData[i] <= thresh) {
             m_pData[i] = 0;
         } else {
@@ -285,9 +287,14 @@ void CMyImage::MakeBinary(int thresh) {
 }
 
 void CMyImage::CalcHisto(CMyHisto &histo) const {
-
+    histo.Reset();
+    int size = m_width * m_height;
+    for (int i = 0; i < size; i++) {
+        histo.Increment(m_pData[i]);
+    }
 }
 
 int CMyImage::CalcThreshByOtsu() const {
+    return 0;
 
 }
