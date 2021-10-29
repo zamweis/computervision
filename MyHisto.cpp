@@ -84,7 +84,8 @@ double CMyHisto::GetNormalizedEntry(int i) const {
         return m_data[i] / (double) m_count;
 }
 
-void CMyHisto::WriteHistoBmp(const char* fileName) {
+// thx Niklas
+void CMyHisto::WriteHistoBmp(const char *fileName) {
     CMyImage img = CMyImage();
     img.Resize(256, 256);
     double max = 0.0;
@@ -92,7 +93,7 @@ void CMyHisto::WriteHistoBmp(const char* fileName) {
         max = GetNormalizedEntry(i) > max ? GetNormalizedEntry(i) : max;
     }
     for (int x = 0; x < 256; x++) {
-        int value = (int)(255 * (GetNormalizedEntry(x) / max));
+        int value = (int) (255 * (GetNormalizedEntry(x) / max));
         for (int y = 0; y < value; y++) {
             img.SetPixel(x, 255 - y, 255);
         }

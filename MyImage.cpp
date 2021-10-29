@@ -235,24 +235,16 @@ void CMyImage::Copy(const CMyImage &toCopy) {
 }
 
 void CMyImage::Resize(int width, int height) {
-    // if resizing with the same dimensions
-    if (width != m_width && height != m_height) {
-        // clear memory
-        free(m_pData);
-        m_width = 0;
-        m_height = 0;
-        int size = height * width;
-        if (size > 0) {
-            m_pData = (unsigned char *) malloc(size * sizeof(unsigned char));
-            // set new dimensions
-            m_width = width;
-            m_height = height;
-            // init all pixels with 0
-            memset(m_pData, 0, m_width * m_height);
-        }
-    } else {
-        // init all pixels with 0 (Aufgabenstellung)
-        memset(m_pData, 0, m_width * m_height);
+    free(m_pData);
+    m_width = 0;
+    m_height = 0;
+
+    if (width > 0 && height > 0) {
+        m_width = width;
+        m_height = height;
+        int size = width * height;
+        m_pData = (unsigned char *) malloc(size * sizeof(unsigned char));
+        memset(m_pData, 0, size);
     }
 }
 

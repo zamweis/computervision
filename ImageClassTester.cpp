@@ -47,9 +47,12 @@ int main(int argc, char *argv[]) {
     startDirectAccess = clock();
     unsigned char* testImageData = testImage.GetData();
     int size = width * height;
-    for (int i = 0; i < size; i++) {
-        testImageData[i] = 255 - testImageData[i];
+    unsigned char* end = testImageData+size;
+    for (unsigned char *p = testImageData; p != end; ++p) {
+        // too
+        *p = 255 - *p;
     }
+
     finishDirectAccess = clock();
     double directAccessTime = (double)(finishDirectAccess - startDirectAccess) / CLOCKS_PER_SEC;
     // write image for check (image should look like source image again)
