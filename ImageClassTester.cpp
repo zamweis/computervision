@@ -118,5 +118,7 @@ void calcThreshByOtsu(){
 
         threshold = testImage.CalcThreshByOtsu();
         cout << "\tthreshold is: " + std::to_string(threshold) + "\n";
+        testImage.MakeBinary(threshold);
+        testImage.WriteBmpFile((string(savePath).append("Otsu").append(images[i])).c_str());
     }
 }
