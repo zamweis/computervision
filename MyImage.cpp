@@ -302,12 +302,12 @@ int CMyImage::CalcThreshByOtsu() const {
     double ph_t = 0;
     double u = 0;
     for (int q = 0; q < t; q++) {
-        u += q * histo.GetNormalizedEntry(q);
+        u = u + q * histo.GetNormalizedEntry(q);
     }
     for (int q = 0; q < t; q++) {
         ph_t = ph_t + histo.GetNormalizedEntry(q);
         u_t = u_t + q * histo.GetNormalizedEntry(q);
-        double sigmaB = (u * ph_t - u_t) * (u * ph_t - u_t) / ph_t * (1 - ph_t);
+        double sigmaB = (u * ph_t - u_t) * (u * ph_t - u_t) / (ph_t * (1 - ph_t));
         if (sigmaB > maxSigmaB) {
             maxSigmaB = sigmaB;
             tStar = q;
@@ -319,8 +319,6 @@ int CMyImage::CalcThreshByOtsu() const {
     for (int q = 0; q < t; q++) {
         sigma2 = sigma2 + (q - u) * (q - u) * histo.GetNormalizedEntry(q);
     }
-    double n = maxSigmaB / sigma2;
-
-    cout << "\tn: " + std::to_string(n) + "\n";
+    cout << "\tn: " + std::to_string(maxSigmaB / sigma2) + "\n";
     return tStar;
 }
