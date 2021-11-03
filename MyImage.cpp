@@ -1,6 +1,7 @@
 #include "MyImage.h"
 #include "math.h"
 #include <cstring>
+#include <iostream>
 
 using namespace std;
 
@@ -291,19 +292,35 @@ void CMyImage::CalcHisto(CMyHisto &histo) const {
 }
 
 int CMyImage::CalcThreshByOtsu() const {
-    // todo
-    CMyHisto histo; // Histogramm, Zugriff z.B. via
+    CMyHisto histo = CMyHisto(); // Histogramm, Zugriff z.B. via
     CalcHisto(histo); // double histo.GetEntry(q)
     double sigmaB = 0.0;
     double maxSigmaB = -1.0;
-    int T;
-    int TStar = -1;
-    for (T = 0; T < 255; T++) {
+    int tStar = -1;
+    int t = histo.GetHistoSize();
+    double u_t = 0;
+    double ph_t = 0;
+    double u = 0;
+    for (int q = 0; q < t; q++) {
+        u += q * histo.GetNormalizedEntry(q);
+    }
+    for (int q = 0; q < t; q++) {
+        ph_t = ph_t + histo.GetNormalizedEntry(q);
+        u_t = u_t + q * histo.GetNormalizedEntry(q);
+        double sigmaB = (u * ph_t - u_t) * (u * ph_t - u_t) / ph_t * (1 - ph_t);
         if (sigmaB > maxSigmaB) {
             maxSigmaB = sigmaB;
-            TStar = T;
+            tStar = q;
         }
     }
-    return TStar;
-}
 
+    // Grauwerte des gesamten Bildes
+    double sigma2 = 0;
+    for (int q = 0; q < t; q++) {
+        sigma2 = sigma2 + (q - u) * (q - u) * histo.GetNormalizedEntry(q);
+    }
+    double n = maxSigmaB / sigma2;
+
+    cout << "\tn: " + std::to_string(n) + "\n";
+    return tStar;
+}

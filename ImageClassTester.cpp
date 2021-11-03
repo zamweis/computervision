@@ -104,7 +104,7 @@ void calcHisto() {
         CMyHisto histo = CMyHisto();
         testImage.CalcHisto(histo);
         // write image for check
-        histo.WriteHistoBmp((string(savePath).append("calcHisto").append(images[i])).c_str());
+        histo.WriteHistoBmp((string(savePath).append("histo").append(images[i])).c_str());
     }
 }
 
@@ -112,7 +112,7 @@ void calcThreshByOtsu(){
     CMyImage testImage = CMyImage();
     int threshold;
     for (int i = 0; i < 7; ++i) {
-        cout << "calculating threshold by Otsu of " + images[i] + "\n";
+        cout << "calculating thresholdByOtsu of " + images[i] + "\n";
         // makeBinary
         testImage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
 

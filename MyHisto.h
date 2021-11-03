@@ -19,6 +19,8 @@ public:
 
     int GetCount() { return m_count; };
 
+    int GetHistoSize() { return HISTO_SIZE; };
+
     void Reset();
 
     void Increment(unsigned char value);
