@@ -283,9 +283,10 @@ void CMyImage::MakeBinary(int thresh) {
 void CMyImage::CalcHisto(CMyHisto &histo) const {
     histo.Reset();
     int size = m_width * m_height;
-    for (int i = 0; i < size; i++) {
+    unsigned char *end = m_pData + size;
+    for (unsigned char *p = m_pData; p != end; ++p) {
         // increment every match in histo
-        histo.Increment(m_pData[i]);
+        histo.Increment(*p);
     }
 }
 
