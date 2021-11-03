@@ -8,23 +8,44 @@
 #include <time.h>
 
 #define ABSOLUTE
-
-int main(int argc, char *argv[]) {
-    // resize image
+// resize image
 #ifdef ABSOLUTE
-    string loadPath = "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/Bilder/";
-    string savePath = "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/";
+string loadPath = "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/Bilder/";
+string savePath = "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/out/";
 #else
-    char* loadPath = "./Bilder/";
+char* loadPath = "./Bilder/";
     char*  savePath = "./out/";
 #endif
+void resize();
+void invert();
+void makeBinary();
+void calcHisto();
+void calcThreshByOtsu();
+string images[] = {"Flower.bmp", "Kap.bmp", "Pedestrians.bmp", "SinglePedestrian.bmp", "Zellen1.bmp", "Zellen2.bmp", "Zellen3.bmp"};
+
+int main(int argc, char *argv[]) {
+    //resize();
+    //invert();
+    makeBinary();
+    calcHisto();
+    calcThreshByOtsu();
+    return 0;
+}
+
+void resize() {
+    cout << "resizing image...\n";
     CMyImage testImage = CMyImage();
     testImage.ReadBmpFile(((string(loadPath).append("Kap.bmp")).c_str()));
 
     // resize image
     testImage.Resize(20, 20);
     testImage.WriteBmpFile((string(savePath).append("resize.bmp")).c_str());
+    cout << "done\n";
+}
 
+void invert() {
+    cout << "inverting image...\n";
+    CMyImage testImage = CMyImage();
     // invert image with getter
     testImage.ReadBmpFile((string(loadPath).append("Kap.bmp")).c_str());
     clock_t start, finish, startDirectAccess, finishDirectAccess;
@@ -39,41 +60,63 @@ int main(int argc, char *argv[]) {
         }
     }
     finish = clock();
-    double indirectAccessTime = (double)(finish - start) / CLOCKS_PER_SEC;
+    double indirectAccessTime = (double) (finish - start) / CLOCKS_PER_SEC;
     // write image for check
-    testImage.WriteBmpFile((string(savePath).append("getter.bmp")).c_str());
+    testImage.WriteBmpFile((string(savePath).append("indirectInvert.bmp")).c_str());
 
+
+    testImage.ReadBmpFile((string(loadPath).append("Kap.bmp")).c_str());
     // invert image with pointer memory access
     startDirectAccess = clock();
-    unsigned char* testImageData = testImage.GetData();
-    int size = width * height;
-    unsigned char* end = testImageData+size;
-    for (unsigned char *p = testImageData; p != end; ++p) {
-        // too
-        *p = 255 - *p;
-    }
+
+    testImage.Invert();
 
     finishDirectAccess = clock();
-    double directAccessTime = (double)(finishDirectAccess - startDirectAccess) / CLOCKS_PER_SEC;
-    // write image for check (image should look like source image again)
-    testImage.WriteBmpFile((string(savePath).append("direct.bmp")).c_str());
+    double directAccessTime = (double) (finishDirectAccess - startDirectAccess) / CLOCKS_PER_SEC;
+    // write image for check
+    testImage.WriteBmpFile((string(savePath).append("directInvert.bmp")).c_str());
 
     // print results
-    cout << "\nindirectAccessTime: " + std::to_string(indirectAccessTime) + " seconds\n";
-    cout << "directAccessTime: " + std::to_string(directAccessTime) + " seconds\n";
-    cout << "factor: " + std::to_string(indirectAccessTime/directAccessTime) + "\n";
+    cout << "\tindirectAccessTime: " + std::to_string(indirectAccessTime) + " seconds\n";
+    cout << "\tdirectAccessTime: " + std::to_string(directAccessTime) + " seconds\n";
+    cout << "\tfactor: " + std::to_string(indirectAccessTime / directAccessTime) + "\n";
+    cout << "done\n";
+}
 
-    // makeBinary
-    testImage.ReadBmpFile((string(loadPath).append("Kap.bmp")).c_str());
-    testImage.MakeBinary(150);
-    // write image for check
-    testImage.WriteBmpFile((string(savePath).append("makeBinary.bmp")).c_str());
+void makeBinary() {
+    CMyImage testImage = CMyImage();
+    for (int i = 0; i < 7; ++i) {
+        cout << "binarizing " + images[i] + "\n";
+        // makeBinary
+        testImage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
+        testImage.MakeBinary(150);
+        // write image for check
+        testImage.WriteBmpFile((string(savePath).append("makeBinary").append(images[i])).c_str());
+    }
+}
 
-    // calcHisto
-    testImage.ReadBmpFile((string(loadPath).append("Zellen1.bmp")).c_str());
-    CMyHisto histo = CMyHisto();
-    testImage.CalcHisto(histo);
-    // write image for check
-    histo.WriteHistoBmp((string(savePath).append("calcHisto.bmp")).c_str());
-    return 0;
+void calcHisto() {
+    CMyImage testImage = CMyImage();
+    for (int i = 0; i < 7; ++i) {
+        cout << "generating histo image of " + images[i] + "\n";
+        // makeBinary
+        testImage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
+        CMyHisto histo = CMyHisto();
+        testImage.CalcHisto(histo);
+        // write image for check
+        histo.WriteHistoBmp((string(savePath).append("calcHisto").append(images[i])).c_str());
+    }
+}
+
+void calcThreshByOtsu(){
+    CMyImage testImage = CMyImage();
+    int threshold;
+    for (int i = 0; i < 7; ++i) {
+        cout << "calculating threshold by Otsu of " + images[i] + "\n";
+        // makeBinary
+        testImage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
+
+        threshold = testImage.CalcThreshByOtsu();
+        cout << "\tthreshold is: " + std::to_string(threshold) + "\n";
+    }
 }

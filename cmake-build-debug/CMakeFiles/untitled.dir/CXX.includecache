@@ -6,16 +6,20 @@
 
 #IncludeRegexTransform: 
 
-/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h
-fstream
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/ImageClassTester.cpp
+stdio.h
 -
-
-/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.cpp
+iostream
+-
 MyImage.h
 /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.h
-math.h
-/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/math.h
-cstring
+MyHisto.h
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h
+time.h
+-
+
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h
+fstream
 -
 
 /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.h
