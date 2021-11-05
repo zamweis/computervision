@@ -322,3 +322,27 @@ int CMyImage::CalcThreshByOtsu() const {
     cout << "\tn: " + std::to_string(maxSigmaB / sigma2) + "\n";
     return tStar;
 }
+
+CMyImage CMyImage::MeanFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) {
+    CMyImage out = CMyImage(source);
+    int destX = sizeX / 2;
+    int destY = sizeY / 2;
+    int mean = 0;
+    // iterator for going though all x
+    for (int i = destX; i < source.m_width - destX; ++i) {
+        // iterator for going though all y
+        for (int j = destY; j < source.m_height - destY; ++j) {
+            // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
+            for (int x = destX - sizeX / 2; x < destX + sizeX; ++x) {
+                for (int y = destY - sizeY / 2; y < destY + sizeY; ++y) {
+                    mean += source.m_pData[source.m_width * y + x];
+                }
+            }
+            mean = mean / sizeY * sizeX;
+            out.m_pData[source.m_width * destY + destX] = mean;
+            destX++;
+        }
+        destY++;
+    }
+    return out;
+}

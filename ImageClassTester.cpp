@@ -21,14 +21,16 @@ void invert();
 void makeBinary();
 void calcHisto();
 void calcThreshByOtsu();
+void meanFilter();
 string images[] = {"Flower.bmp", "Kap.bmp", "Pedestrians.bmp", "SinglePedestrian.bmp", "Zellen1.bmp", "Zellen2.bmp", "Zellen3.bmp"};
 
 int main(int argc, char *argv[]) {
     //resize();
     //invert();
-    makeBinary();
-    calcHisto();
-    calcThreshByOtsu();
+    //makeBinary();
+    //calcHisto();
+    //calcThreshByOtsu();
+    meanFilter();
     return 0;
 }
 
@@ -119,4 +121,16 @@ void calcThreshByOtsu(){
         threshold = testImage.CalcThreshByOtsu();
         cout << "\tthreshold is: " + std::to_string(threshold) + "\n";
     }
+}
+
+void meanFilter(){
+    cout << "mean filter image...\n";
+    CMyImage testImage = CMyImage();
+    CMyImage out = CMyImage();
+    testImage.ReadBmpFile(((string(loadPath).append("Flower.bmp")).c_str()));
+
+    // filter image
+    out = testImage.MeanFilter(testImage, 3, 3);
+    out.WriteBmpFile((string(savePath).append("meanFilterFlower.bmp")).c_str());
+    cout << "done\n";
 }

@@ -58,4 +58,6 @@ public:
     void CalcHisto(CMyHisto &histo) const;
 
     int CalcThreshByOtsu() const;
+
+    CMyImage MeanFilter(const CMyImage &source, int sizeX, int sizeY);
 };
