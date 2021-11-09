@@ -27,9 +27,7 @@ void calcHisto();
 
 void calcThreshByOtsu();
 
-void meanFilter();
-
-void medianFilter();
+void compareFilters();
 
 string images[] = {"Flower.bmp", "Kap.bmp", "Pedestrians.bmp", "SinglePedestrian.bmp", "Zellen1.bmp", "Zellen2.bmp",
                    "Zellen3.bmp", "FlowerNoise.bmp", "FlowerSaltAndPepper.bmp", "KreisQuadrat.bmp"};
@@ -40,8 +38,7 @@ int main(int argc, char *argv[]) {
     //makeBinary();
     //calcHisto();
     //calcThreshByOtsu();
-    meanFilter();
-    medianFilter();
+    compareFilters();
     return 0;
 }
 
@@ -134,59 +131,36 @@ void calcThreshByOtsu() {
     }
 }
 
-void meanFilter() {
-    cout << "meanFilter FlowerSaltAndPepper.bmp\n";
+void compareFilters() {
     clock_t start, finish;
     CMyImage testImage = CMyImage();
-    testImage.ReadBmpFile(((string(loadPath).append("FlowerSaltAndPepper.bmp")).c_str()));
+    double meanTime, medianTime;
+    // test filters on 2 specific images
+    for (int i = 7; i < 9; ++i) {
+        cout << images[i] + "\n";
+        // test filters with different filterSizes
+        for (int sizeX = 3; sizeX <= 250; sizeX+=50) {
+            for (int sizeY = 3; sizeY <= 250; sizeY+=50) {
+                cout << "size: " + std::to_string(sizeX) + "x" + std::to_string(sizeY) + "\n";
+                testImage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
+                // test with meanFilter
+                start = clock();
+                testImage.MeanFilter(testImage, 3, 3);
+                finish = clock();
+                meanTime = (double) (finish - start) / CLOCKS_PER_SEC;
+                testImage.WriteBmpFile((string(savePath).append("meanFilter").append("(").append(std::to_string(sizeX)).append("x").append(std::to_string(sizeY)).append(")").append(images[i])).c_str());
+                // test with medianFilter
+                start = clock();
+                testImage.MedianFilter(testImage, 3, 3);
+                finish = clock();
+                medianTime = (double) (finish - start) / CLOCKS_PER_SEC;
+                testImage.WriteBmpFile((string(savePath).append("medianFilter").append("(").append(std::to_string(sizeX)).append("x").append(std::to_string(sizeY)).append(")").append(images[i])).c_str());
 
-    // filter image
-    start = clock();
-    testImage.MeanFilter(testImage, 3, 3);
-    finish = clock();
-    double time = (double) (finish - start) / CLOCKS_PER_SEC;
-    cout << "time: " + std::to_string(time) + "\n";
-    testImage.WriteBmpFile((string(savePath).append("meanFilterFlowerSaltAndPepper.bmp")).c_str());
-
-
-    cout << "meanFilter FlowerNoise.bmp\n";
-    testImage = CMyImage();
-    testImage.ReadBmpFile((string(loadPath).append("FlowerNoise.bmp")).c_str());
-
-
-    // filter image
-    start = clock();
-    testImage.MeanFilter(testImage, 3, 3);
-    finish = clock();
-    time = (double) (finish - start) / CLOCKS_PER_SEC;
-    cout << "time: " + std::to_string(time) + "\n";
-    testImage.WriteBmpFile((string(savePath).append("meanFilterFlowerNoise.bmp")).c_str());
-}
-
-void medianFilter() {
-    cout << "medianFilter FlowerSaltAndPepper.bmp\n";
-    clock_t start, finish;
-    CMyImage testImage = CMyImage();
-    testImage.ReadBmpFile(((string(loadPath).append("FlowerSaltAndPepper.bmp")).c_str()));
-
-    // filter image
-    start = clock();
-    testImage.MedianFilter(testImage, 3, 3);
-    finish = clock();
-    double time = (double) (finish - start) / CLOCKS_PER_SEC;
-    cout << "time: " + std::to_string(time) + "\n";
-    testImage.WriteBmpFile((string(savePath).append("medianFilterFlowerSaltAndPepper.bmp")).c_str());
-
-
-    cout << "medianFilter FlowerNoise.bmp\n";
-    testImage = CMyImage();
-    testImage.ReadBmpFile((string(loadPath).append("FlowerNoise.bmp")).c_str());
-
-    // filter image
-    start = clock();
-    testImage.MedianFilter(testImage, 3, 3);
-    finish = clock();
-    time = (double) (finish - start) / CLOCKS_PER_SEC;
-    cout << "time: " + std::to_string(time) + "\n";
-    testImage.WriteBmpFile((string(savePath).append("medianFilterFlowerNoise.bmp")).c_str());
+                // print results
+                cout << "\tmeanTime: " + std::to_string(meanTime) + "\n";
+                cout << "\tmedianTime: " + std::to_string(medianTime) + "\n";
+                cout << "\tfactor: " + std::to_string(medianTime/meanTime) + "\n";
+            }
+        }
+    }
 }
