@@ -323,37 +323,42 @@ int CMyImage::CalcThreshByOtsu() const {
     return tStar;
 }
 
-CMyImage CMyImage::MeanFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) {
-    CMyImage out = CMyImage(source);
+void CMyImage::MeanFilter(CMyImage &source, int sizeX = 3, int sizeY = 3) {
     int startX = sizeX / 2;
     int startY = sizeY / 2;
     int size = sizeX * sizeY;
-    cout << "source [" + std::to_string(source.m_width) + "," + std::to_string(source.m_height) + "]\n";
+    // cout << "source [" + std::to_string(source.m_width) + "," + std::to_string(source.m_height) + "]\n";
     int endX = source.GetWidth() - startX;
     int endY = source.GetHeight() - startY;
-    cout << "startPixel [" + std::to_string(startX) + "," + std::to_string(startY) + "]\n";
-    cout << "endPixel [" + std::to_string(endX) + "," + std::to_string(endY) + "]\n";
+    // cout << "startPixel [" + std::to_string(startX) + "," + std::to_string(startY) + "]\n";
+    // cout << "endPixel [" + std::to_string(endX) + "," + std::to_string(endY) + "]\n";
 
+
+    int startMeanX;
+    int startMeanY;
+    int endMeanX;
+    int endMeanY;
+    int mean;
 
     // iterator for going though all y
     for (int j = startY; j <= endY; j++) {
         // iterator for going though all x
         for (int i = startX; i <= endX; i++) {
-            int mean = 0;
-            cout << "currentPixel [" + std::to_string(i) + "," + std::to_string(j) + "]\n";
+            mean = 0;
+            // cout << "currentPixel [" + std::to_string(i) + "," + std::to_string(j) + "]\n";
             // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
-            int startMeanX = i - startX;
-            int startMeanY = j - startY;
-            int endMeanX = i + startX;
-            int endMeanY = j + startY;
+            startMeanX = i - startX;
+            startMeanY = j - startY;
+            endMeanX = i + startX;
+            endMeanY = j + startY;
             for (int y = startMeanY; y <= endMeanY; y++) {
                 for (int x = startMeanX; x <= endMeanX; x++) {
-                    cout << "\tmeanPixel ["+std::to_string(x)+","+std::to_string(y)+"]\n";
+                    // cout << "\tmeanPixel["+std::to_string(x)+","+std::to_string(y)+"]="+std::to_string(source.m_pData[source.m_width * y + x])+"\n";
                     mean += source.m_pData[source.m_width * y + x];
                 }
             }
-            out.m_pData[source.m_width * j + i] = mean / size;
+            // cout << "\t\tmean = "+std::to_string(mean/ size)+"\n";
+            source.m_pData[source.m_width * j + i] = mean / size;
         }
     }
-    return out;
 }

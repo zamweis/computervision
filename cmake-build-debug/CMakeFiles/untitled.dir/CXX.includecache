@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/ImageClassTester.cpp
+stdio.h
+-
+iostream
+-
+MyImage.h
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.h
+MyHisto.h
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h
+time.h
+-
+
 /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h
 fstream
 -

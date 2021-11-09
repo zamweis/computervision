@@ -16,13 +16,21 @@ string savePath = "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/comp
 char* loadPath = "./Bilder/";
     char*  savePath = "./out/";
 #endif
+
 void resize();
+
 void invert();
+
 void makeBinary();
+
 void calcHisto();
+
 void calcThreshByOtsu();
+
 void meanFilter();
-string images[] = {"Flower.bmp", "Kap.bmp", "Pedestrians.bmp", "SinglePedestrian.bmp", "Zellen1.bmp", "Zellen2.bmp", "Zellen3.bmp"};
+
+string images[] = {"Flower.bmp", "Kap.bmp", "Pedestrians.bmp", "SinglePedestrian.bmp", "Zellen1.bmp", "Zellen2.bmp",
+                   "Zellen3.bmp", "FlowerNoise.bmp", "FlowerSaltAndPepper.bmp", "KreisQuadrat.bmp"};
 
 int main(int argc, char *argv[]) {
     //resize();
@@ -40,7 +48,7 @@ void resize() {
     testImage.ReadBmpFile(((string(loadPath).append("Kap.bmp")).c_str()));
 
     // resize image
-    testImage.Resize(20, 20);
+    testImage.Resize(5, 5);
     testImage.WriteBmpFile((string(savePath).append("resize.bmp")).c_str());
     cout << "done\n";
 }
@@ -110,7 +118,7 @@ void calcHisto() {
     }
 }
 
-void calcThreshByOtsu(){
+void calcThreshByOtsu() {
     CMyImage testImage = CMyImage();
     int threshold;
     for (int i = 0; i < 7; ++i) {
@@ -123,14 +131,24 @@ void calcThreshByOtsu(){
     }
 }
 
-void meanFilter(){
-    cout << "mean filter image...\n";
+void meanFilter() {
+    cout << "meanFilter FlowerSaltAndPepper.bmp\n";
     CMyImage testImage = CMyImage();
-    CMyImage out = CMyImage();
-    testImage.ReadBmpFile(((string(loadPath).append("Flower.bmp")).c_str()));
+    testImage.ReadBmpFile(((string(loadPath).append("FlowerSaltAndPepper.bmp")).c_str()));
 
     // filter image
-    out = testImage.MeanFilter(testImage, 3, 3);
-    out.WriteBmpFile((string(savePath).append("meanFilterFlower.bmp")).c_str());
+    testImage.MeanFilter(testImage, 3, 3);
+    testImage.WriteBmpFile((string(savePath).append("meanFilterFlowerSaltAndPepper.bmp")).c_str());
+    cout << "done\n";
+
+
+    cout << "meanFilter FlowerNoise.bmp\n";
+    testImage = CMyImage();
+    testImage.ReadBmpFile((string(loadPath).append("FlowerNoise.bmp")).c_str());
+
+
+    // filter image
+    testImage.MeanFilter(testImage, 3, 3);
+    testImage.WriteBmpFile((string(savePath).append("meanFilterFlowerNoise.bmp")).c_str());
     cout << "done\n";
 }
