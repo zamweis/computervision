@@ -26,8 +26,8 @@ string images[] = {"Flower.bmp", "Kap.bmp", "Pedestrians.bmp", "SinglePedestrian
 int main(int argc, char *argv[]) {
     //resize();
     //invert();
-    makeBinary();
-    calcHisto();
+    //makeBinary();
+    //calcHisto();
     calcThreshByOtsu();
     return 0;
 }

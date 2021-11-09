@@ -22,6 +22,16 @@ time.h
 fstream
 -
 
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.cpp
+MyImage.h
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.h
+math.h
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/math.h
+cstring
+-
+iostream
+-
+
 /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.h
 MyHisto.h
 /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h

@@ -239,7 +239,7 @@ void CMyImage::Resize(int width, int height) {
     free(m_pData);
     m_width = 0;
     m_height = 0;
-
+    m_pData = NULL;
     if (width > 0 && height > 0) {
         m_width = width;
         m_height = height;
@@ -307,18 +307,26 @@ int CMyImage::CalcThreshByOtsu() const {
     for (int q = 0; q < t; q++) {
         ph_t = ph_t + histo.GetNormalizedEntry(q);
         u_t = u_t + q * histo.GetNormalizedEntry(q);
+        // todo isnormal
         double sigmaB = (u * ph_t - u_t) * (u * ph_t - u_t) / (ph_t * (1 - ph_t));
-        if (sigmaB > maxSigmaB) {
+        if (sigmaB > maxSigmaB && std::isnormal(sigmaB)) {
             maxSigmaB = sigmaB;
             tStar = q;
         }
     }
+}
 
-    // Grauwerte des gesamten Bildes
-    double sigma2 = 0;
-    for (int q = 0; q < t; q++) {
-        sigma2 = sigma2 + (q - u) * (q - u) * histo.GetNormalizedEntry(q);
-    }
-    cout << "\tn: " + std::to_string(maxSigmaB / sigma2) + "\n";
-    return tStar;
+// Grauwerte des gesamten Bildes
+double sigma2 = 0;
+for (
+int q = 0;
+q<t;
+q++) {
+sigma2 = sigma2 + (q - u) * (q - u) * histo.GetNormalizedEntry(q);
+}
+cout << "\tn: " +
+std::to_string(maxSigmaB
+/ sigma2) + "\n";
+return
+tStar;
 }
