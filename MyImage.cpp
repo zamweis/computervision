@@ -323,42 +323,35 @@ int CMyImage::CalcThreshByOtsu() const {
     return tStar;
 }
 
-void CMyImage::MeanFilter(CMyImage &source, int sizeX = 3, int sizeY = 3) {
+void CMyImage::MeanFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) {
+    int size = sizeX * sizeY;
     int startX = sizeX / 2;
     int startY = sizeY / 2;
-    int size = sizeX * sizeY;
-    // cout << "source [" + std::to_string(source.m_width) + "," + std::to_string(source.m_height) + "]\n";
     int endX = source.GetWidth() - startX;
     int endY = source.GetHeight() - startY;
-    // cout << "startPixel [" + std::to_string(startX) + "," + std::to_string(startY) + "]\n";
-    // cout << "endPixel [" + std::to_string(endX) + "," + std::to_string(endY) + "]\n";
-
-
     int startMeanX;
     int startMeanY;
     int endMeanX;
     int endMeanY;
     int mean;
+    unsigned char *pointer = source.m_pData;
 
-    // iterator for going though all y
+    // iterator going though all y
     for (int j = startY; j <= endY; j++) {
-        // iterator for going though all x
+        // iterator going though all x
         for (int i = startX; i <= endX; i++) {
             mean = 0;
-            // cout << "currentPixel [" + std::to_string(i) + "," + std::to_string(j) + "]\n";
-            // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
             startMeanX = i - startX;
             startMeanY = j - startY;
             endMeanX = i + startX;
             endMeanY = j + startY;
+            // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
             for (int y = startMeanY; y <= endMeanY; y++) {
                 for (int x = startMeanX; x <= endMeanX; x++) {
-                    // cout << "\tmeanPixel["+std::to_string(x)+","+std::to_string(y)+"]="+std::to_string(source.m_pData[source.m_width * y + x])+"\n";
-                    mean += source.m_pData[source.m_width * y + x];
+                    mean += *(pointer + source.m_width * y + x);
                 }
             }
-            // cout << "\t\tmean = "+std::to_string(mean/ size)+"\n";
-            source.m_pData[source.m_width * j + i] = mean / size;
+            *(pointer + source.m_width * j + i) = mean / size;
         }
     }
 }

@@ -59,5 +59,5 @@ public:
 
     int CalcThreshByOtsu() const;
 
-    void MeanFilter(CMyImage &source, int sizeX, int sizeY);
+    void MeanFilter(const CMyImage &source, int sizeX, int sizeY);
 };
