@@ -24,10 +24,10 @@ void calcThreshByOtsu();
 string images[] = {"Flower.bmp", "Kap.bmp", "Pedestrians.bmp", "SinglePedestrian.bmp", "Zellen1.bmp", "Zellen2.bmp", "Zellen3.bmp"};
 
 int main(int argc, char *argv[]) {
-    //resize();
-    //invert();
-    //makeBinary();
-    //calcHisto();
+    resize();
+    invert();
+    makeBinary();
+    calcHisto();
     calcThreshByOtsu();
     return 0;
 }
