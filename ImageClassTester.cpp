@@ -136,13 +136,17 @@ void calcThreshByOtsu() {
 
 void meanFilter() {
     cout << "meanFilter FlowerSaltAndPepper.bmp\n";
+    clock_t start, finish;
     CMyImage testImage = CMyImage();
     testImage.ReadBmpFile(((string(loadPath).append("FlowerSaltAndPepper.bmp")).c_str()));
 
     // filter image
+    start = clock();
     testImage.MeanFilter(testImage, 3, 3);
+    finish = clock();
+    double time = (double) (finish - start) / CLOCKS_PER_SEC;
+    cout << "time: " + std::to_string(time) + "\n";
     testImage.WriteBmpFile((string(savePath).append("meanFilterFlowerSaltAndPepper.bmp")).c_str());
-    cout << "done\n";
 
 
     cout << "meanFilter FlowerNoise.bmp\n";
@@ -151,20 +155,27 @@ void meanFilter() {
 
 
     // filter image
+    start = clock();
     testImage.MeanFilter(testImage, 3, 3);
+    finish = clock();
+    time = (double) (finish - start) / CLOCKS_PER_SEC;
+    cout << "time: " + std::to_string(time) + "\n";
     testImage.WriteBmpFile((string(savePath).append("meanFilterFlowerNoise.bmp")).c_str());
-    cout << "done\n";
 }
 
 void medianFilter() {
     cout << "medianFilter FlowerSaltAndPepper.bmp\n";
+    clock_t start, finish;
     CMyImage testImage = CMyImage();
     testImage.ReadBmpFile(((string(loadPath).append("FlowerSaltAndPepper.bmp")).c_str()));
 
     // filter image
+    start = clock();
     testImage.MedianFilter(testImage, 3, 3);
+    finish = clock();
+    double time = (double) (finish - start) / CLOCKS_PER_SEC;
+    cout << "time: " + std::to_string(time) + "\n";
     testImage.WriteBmpFile((string(savePath).append("medianFilterFlowerSaltAndPepper.bmp")).c_str());
-    cout << "done\n";
 
 
     cout << "medianFilter FlowerNoise.bmp\n";
@@ -172,7 +183,10 @@ void medianFilter() {
     testImage.ReadBmpFile((string(loadPath).append("FlowerNoise.bmp")).c_str());
 
     // filter image
+    start = clock();
     testImage.MedianFilter(testImage, 3, 3);
+    finish = clock();
+    time = (double) (finish - start) / CLOCKS_PER_SEC;
+    cout << "time: " + std::to_string(time) + "\n";
     testImage.WriteBmpFile((string(savePath).append("medianFilterFlowerNoise.bmp")).c_str());
-    cout << "done\n";
 }
