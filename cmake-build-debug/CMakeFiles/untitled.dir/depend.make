@@ -12,4 +12,5 @@ CMakeFiles/untitled.dir/MyHisto.cpp.o: ../MyImage.h
 CMakeFiles/untitled.dir/MyImage.cpp.o: ../MyHisto.h
 CMakeFiles/untitled.dir/MyImage.cpp.o: ../MyImage.cpp
 CMakeFiles/untitled.dir/MyImage.cpp.o: ../MyImage.h
+CMakeFiles/untitled.dir/MyImage.cpp.o: ../QuickSort.cpp
 

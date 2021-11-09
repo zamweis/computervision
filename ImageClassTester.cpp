@@ -29,6 +29,8 @@ void calcThreshByOtsu();
 
 void meanFilter();
 
+void medianFilter();
+
 string images[] = {"Flower.bmp", "Kap.bmp", "Pedestrians.bmp", "SinglePedestrian.bmp", "Zellen1.bmp", "Zellen2.bmp",
                    "Zellen3.bmp", "FlowerNoise.bmp", "FlowerSaltAndPepper.bmp", "KreisQuadrat.bmp"};
 
@@ -39,6 +41,7 @@ int main(int argc, char *argv[]) {
     //calcHisto();
     //calcThreshByOtsu();
     meanFilter();
+    medianFilter();
     return 0;
 }
 
@@ -150,5 +153,26 @@ void meanFilter() {
     // filter image
     testImage.MeanFilter(testImage, 3, 3);
     testImage.WriteBmpFile((string(savePath).append("meanFilterFlowerNoise.bmp")).c_str());
+    cout << "done\n";
+}
+
+void medianFilter() {
+    cout << "medianFilter FlowerSaltAndPepper.bmp\n";
+    CMyImage testImage = CMyImage();
+    testImage.ReadBmpFile(((string(loadPath).append("FlowerSaltAndPepper.bmp")).c_str()));
+
+    // filter image
+    testImage.MedianFilter(testImage, 3, 3);
+    testImage.WriteBmpFile((string(savePath).append("medianFilterFlowerSaltAndPepper.bmp")).c_str());
+    cout << "done\n";
+
+
+    cout << "medianFilter FlowerNoise.bmp\n";
+    testImage = CMyImage();
+    testImage.ReadBmpFile((string(loadPath).append("FlowerNoise.bmp")).c_str());
+
+    // filter image
+    testImage.MedianFilter(testImage, 3, 3);
+    testImage.WriteBmpFile((string(savePath).append("medianFilterFlowerNoise.bmp")).c_str());
     cout << "done\n";
 }

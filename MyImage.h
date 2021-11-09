@@ -60,4 +60,6 @@ public:
     int CalcThreshByOtsu() const;
 
     void MeanFilter(const CMyImage &source, int sizeX, int sizeY);
+
+    void MedianFilter(const CMyImage &source, int sizeX, int sizeY);
 };
