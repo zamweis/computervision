@@ -314,19 +314,12 @@ int CMyImage::CalcThreshByOtsu() const {
             tStar = q;
         }
     }
-}
 
-// Grauwerte des gesamten Bildes
-double sigma2 = 0;
-for (
-int q = 0;
-q<t;
-q++) {
-sigma2 = sigma2 + (q - u) * (q - u) * histo.GetNormalizedEntry(q);
-}
-cout << "\tn: " +
-std::to_string(maxSigmaB
-/ sigma2) + "\n";
-return
-tStar;
+    // Grauwerte des gesamten Bildes
+    double sigma2 = 0;
+    for (int q = 0; q < t; q++) {
+        sigma2 = sigma2 + (q - u) * (q - u) * histo.GetNormalizedEntry(q);
+    }
+    cout << "\tn: " + std::to_string(maxSigmaB / sigma2) + "\n";
+    return tStar;
 }
