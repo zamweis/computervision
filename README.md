@@ -42,7 +42,7 @@ CMyIntImage als Zwischenergebnis.
 c) Freiwillige Zusatzaufgabe: Implementieren Sie den Filter auch fur Bilder mit mehr ¨
 als einem Kanal.
 
-## Aufgabe 4.2 Farbbildsegmentierung im RGB-Raum.
+### Aufgabe 4.2 Farbbildsegmentierung im RGB-Raum.
 
 a) Implementieren Sie den Rumpf der Memberfunktion CMyCharImage::ApplyThresh().
 Die Funktion soll die ubergebene Schwelle auf den als Parameter ¨ ubergebenen Kanal ¨
