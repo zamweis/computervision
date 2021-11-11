@@ -57,60 +57,30 @@ include CMakeFiles/untitled.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/untitled.dir/flags.make
 
-CMakeFiles/untitled.dir/ImageClassTester.cpp.o: CMakeFiles/untitled.dir/flags.make
-CMakeFiles/untitled.dir/ImageClassTester.cpp.o: ../ImageClassTester.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/untitled.dir/ImageClassTester.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/ImageClassTester.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/ImageClassTester.cpp
+CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o: ../TypeImageClassTester.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp
 
-CMakeFiles/untitled.dir/ImageClassTester.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/ImageClassTester.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/ImageClassTester.cpp > CMakeFiles/untitled.dir/ImageClassTester.cpp.i
+CMakeFiles/untitled.dir/TypeImageClassTester.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/TypeImageClassTester.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp > CMakeFiles/untitled.dir/TypeImageClassTester.cpp.i
 
-CMakeFiles/untitled.dir/ImageClassTester.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/ImageClassTester.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/ImageClassTester.cpp -o CMakeFiles/untitled.dir/ImageClassTester.cpp.s
-
-CMakeFiles/untitled.dir/MyImage.cpp.o: CMakeFiles/untitled.dir/flags.make
-CMakeFiles/untitled.dir/MyImage.cpp.o: ../MyImage.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/untitled.dir/MyImage.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/MyImage.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.cpp
-
-CMakeFiles/untitled.dir/MyImage.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/MyImage.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.cpp > CMakeFiles/untitled.dir/MyImage.cpp.i
-
-CMakeFiles/untitled.dir/MyImage.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/MyImage.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.cpp -o CMakeFiles/untitled.dir/MyImage.cpp.s
-
-CMakeFiles/untitled.dir/MyHisto.cpp.o: CMakeFiles/untitled.dir/flags.make
-CMakeFiles/untitled.dir/MyHisto.cpp.o: ../MyHisto.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/untitled.dir/MyHisto.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/MyHisto.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp
-
-CMakeFiles/untitled.dir/MyHisto.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/MyHisto.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp > CMakeFiles/untitled.dir/MyHisto.cpp.i
-
-CMakeFiles/untitled.dir/MyHisto.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/MyHisto.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp -o CMakeFiles/untitled.dir/MyHisto.cpp.s
+CMakeFiles/untitled.dir/TypeImageClassTester.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/TypeImageClassTester.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp -o CMakeFiles/untitled.dir/TypeImageClassTester.cpp.s
 
 # Object files for target untitled
 untitled_OBJECTS = \
-"CMakeFiles/untitled.dir/ImageClassTester.cpp.o" \
-"CMakeFiles/untitled.dir/MyImage.cpp.o" \
-"CMakeFiles/untitled.dir/MyHisto.cpp.o"
+"CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o"
 
 # External object files for target untitled
 untitled_EXTERNAL_OBJECTS =
 
-untitled: CMakeFiles/untitled.dir/ImageClassTester.cpp.o
-untitled: CMakeFiles/untitled.dir/MyImage.cpp.o
-untitled: CMakeFiles/untitled.dir/MyHisto.cpp.o
+untitled: CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o
 untitled: CMakeFiles/untitled.dir/build.make
 untitled: CMakeFiles/untitled.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable untitled"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable untitled"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

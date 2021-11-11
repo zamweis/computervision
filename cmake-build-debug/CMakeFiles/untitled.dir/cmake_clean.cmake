@@ -1,7 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/untitled.dir/ImageClassTester.cpp.o"
-  "CMakeFiles/untitled.dir/MyHisto.cpp.o"
-  "CMakeFiles/untitled.dir/MyImage.cpp.o"
+  "CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o"
   "untitled"
   "untitled.pdb"
 )

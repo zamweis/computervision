@@ -82,22 +82,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/ImageClassTester.cpp">
-			<Option target="untitled"/>
-		</Unit>
-		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp">
-			<Option target="untitled"/>
-		</Unit>
-		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h">
-			<Option target="untitled"/>
-		</Unit>
-		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.cpp">
-			<Option target="untitled"/>
-		</Unit>
-		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.h">
-			<Option target="untitled"/>
-		</Unit>
-		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/stdafx.h">
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp">
 			<Option target="untitled"/>
 		</Unit>
 		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/targetver.h">

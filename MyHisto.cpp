@@ -1,5 +1,8 @@
+#include "StdAfx.h"
+
+#define _AFXDLL
+
 #include "MyHisto.h"
-#include "MyImage.h"
 #include <math.h>
 
 CMyHisto::CMyHisto(void) {
@@ -34,22 +37,24 @@ bool CMyHisto::WriteHisto(const char *fileName) {
     return true;
 }
 
-bool CMyHisto::WriteNormalizedHisto(const char *fileName) {
+bool CMyHisto::WriteNormalizedHisto(const char *fileName, double factor) {
     ofstream os(fileName);
     if (!os)
+        return false;
+    if (m_count == 0)
         return false;
 
     double count = m_count;
     for (int i = 0; i < HISTO_SIZE; i++) {
-        os << i << "\t" << m_data[i] / count << endl;
+        os << i << "\t" << factor * m_data[i] / count << endl;
     }
     os << "\t" << m_count << endl;
     os.close();
     return true;
 }
 
-double CMyHisto::CalcMeanValue() {
-    if (m_count < 1)
+double CMyHisto::CalcMean() {
+    if (m_count == 0)
         return -1.0;
 
     double mean = 0.0;
@@ -59,44 +64,25 @@ double CMyHisto::CalcMeanValue() {
     return mean / m_count;
 }
 
-double CMyHisto::CalcStandardDeviation(double mean) {
-    if (m_count < 2)
+double CMyHisto::CalcSigma(double mean) {
+    if (m_count == 0)
         return -1.0;
 
     double sigma = 0.0;
     for (int i = 0; i < HISTO_SIZE; i++) {
         sigma += pow(i - mean, 2) * (double) m_data[i];
     }
-    return sqrt(sigma / (m_count - 1));
+    return sqrt(sigma / m_count);
 }
 
-int CMyHisto::GetEntry(int i) const {
-    if ((i < 0) || (i >= HISTO_SIZE))
-        return -1;
-    else
-        return m_data[i];
-};
-
-double CMyHisto::GetNormalizedEntry(int i) const {
-    if ((i < 0) || (i >= HISTO_SIZE))
+double CMyHisto::CalcVariance(double mean) {
+    if (m_count == 0)
         return -1.0;
-    else
-        return m_data[i] / (double) m_count;
+
+    double sigma = 0.0;
+    for (int i = 0; i < HISTO_SIZE; i++) {
+        sigma += pow(i - mean, 2) * (double) m_data[i];
+    }
+    return (sigma / m_count);
 }
 
-// thx Niklas
-void CMyHisto::WriteHistoBmp(const char *fileName) {
-    CMyImage img = CMyImage();
-    img.Resize(256, 256);
-    double max = 0.0;
-    for (int i = 0; i < 256; i++) {
-        max = GetNormalizedEntry(i) > max ? GetNormalizedEntry(i) : max;
-    }
-    for (int x = 0; x < 256; x++) {
-        int value = (int) (255 * (GetNormalizedEntry(x) / max));
-        for (int y = 0; y < value; y++) {
-            img.SetPixel(x, 255 - y, 255);
-        }
-    }
-    img.WriteBmpFile(fileName);
-}

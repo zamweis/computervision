@@ -123,86 +123,32 @@ untitled/fast:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
-ImageClassTester.o: ImageClassTester.cpp.o
+TypeImageClassTester.o: TypeImageClassTester.cpp.o
 
-.PHONY : ImageClassTester.o
-
-# target to build an object file
-ImageClassTester.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/ImageClassTester.cpp.o
-.PHONY : ImageClassTester.cpp.o
-
-ImageClassTester.i: ImageClassTester.cpp.i
-
-.PHONY : ImageClassTester.i
-
-# target to preprocess a source file
-ImageClassTester.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/ImageClassTester.cpp.i
-.PHONY : ImageClassTester.cpp.i
-
-ImageClassTester.s: ImageClassTester.cpp.s
-
-.PHONY : ImageClassTester.s
-
-# target to generate assembly for a file
-ImageClassTester.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/ImageClassTester.cpp.s
-.PHONY : ImageClassTester.cpp.s
-
-MyHisto.o: MyHisto.cpp.o
-
-.PHONY : MyHisto.o
+.PHONY : TypeImageClassTester.o
 
 # target to build an object file
-MyHisto.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyHisto.cpp.o
-.PHONY : MyHisto.cpp.o
+TypeImageClassTester.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o
+.PHONY : TypeImageClassTester.cpp.o
 
-MyHisto.i: MyHisto.cpp.i
+TypeImageClassTester.i: TypeImageClassTester.cpp.i
 
-.PHONY : MyHisto.i
-
-# target to preprocess a source file
-MyHisto.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyHisto.cpp.i
-.PHONY : MyHisto.cpp.i
-
-MyHisto.s: MyHisto.cpp.s
-
-.PHONY : MyHisto.s
-
-# target to generate assembly for a file
-MyHisto.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyHisto.cpp.s
-.PHONY : MyHisto.cpp.s
-
-MyImage.o: MyImage.cpp.o
-
-.PHONY : MyImage.o
-
-# target to build an object file
-MyImage.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyImage.cpp.o
-.PHONY : MyImage.cpp.o
-
-MyImage.i: MyImage.cpp.i
-
-.PHONY : MyImage.i
+.PHONY : TypeImageClassTester.i
 
 # target to preprocess a source file
-MyImage.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyImage.cpp.i
-.PHONY : MyImage.cpp.i
+TypeImageClassTester.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/TypeImageClassTester.cpp.i
+.PHONY : TypeImageClassTester.cpp.i
 
-MyImage.s: MyImage.cpp.s
+TypeImageClassTester.s: TypeImageClassTester.cpp.s
 
-.PHONY : MyImage.s
+.PHONY : TypeImageClassTester.s
 
 # target to generate assembly for a file
-MyImage.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyImage.cpp.s
-.PHONY : MyImage.cpp.s
+TypeImageClassTester.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/TypeImageClassTester.cpp.s
+.PHONY : TypeImageClassTester.cpp.s
 
 # Help Target
 help:
@@ -213,15 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... untitled"
-	@echo "... ImageClassTester.o"
-	@echo "... ImageClassTester.i"
-	@echo "... ImageClassTester.s"
-	@echo "... MyHisto.o"
-	@echo "... MyHisto.i"
-	@echo "... MyHisto.s"
-	@echo "... MyImage.o"
-	@echo "... MyImage.i"
-	@echo "... MyImage.s"
+	@echo "... TypeImageClassTester.o"
+	@echo "... TypeImageClassTester.i"
+	@echo "... TypeImageClassTester.s"
 .PHONY : help
 
 
