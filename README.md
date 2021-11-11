@@ -1,4 +1,4 @@
-﻿Hochschule Karlsruhe - Technik und Wirtschaft Stand: 17. November 2017
+Hochschule Karlsruhe - Technik und Wirtschaft Stand: 17. November 2017
 
 Fakult ̈at f ̈ur Informatik und Wirtschaftsinformatik WS 17/
 
@@ -15,6 +15,9 @@ Zur Lösung der Aufgaben steht ein Framework (Visual Studio 2012) und ein Archiv
 Bildmaterial zur Verfugung. Das Framework enthält eine Teilimplementierung einer Elternklasse CMyTypeImage und wieder eine Klasse CMyHisto. Die Klasse CMyTypeImage ist eine
 template-Klasse, sodass die Klasse fur verschiedene Datentypen verwendet werden kann. Von ¨
 der Klasse sind Ausprägungen fur die Datentypen ¨ unsigned char, float und int abgeleitet.
+
+
+![class uml](class.png?raw=true "Class UML")
 
 
 Zum Lesen und Schreiben von Bildern benötigen Sie die Klassen CMyCharImage und
