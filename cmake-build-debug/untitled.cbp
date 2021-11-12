@@ -85,9 +85,6 @@
 		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp">
 			<Option target="untitled"/>
 		</Unit>
-		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/targetver.h">
-			<Option target="untitled"/>
-		</Unit>
 		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

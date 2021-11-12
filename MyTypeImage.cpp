@@ -27,14 +27,12 @@ CMyTypeImage<T>::~CMyTypeImage(void) {
 }
 
 template<class T>
-int
-CMyTypeImage<T>::GetStorage() const {
+int CMyTypeImage<T>::GetStorage() const {
     return (m_width * m_height * m_depth * sizeof(T));
 }
 
 template<class T>
-void
-CMyTypeImage<T>::Copy(const CMyTypeImage<T> &toCopy) {
+void CMyTypeImage<T>::Copy(const CMyTypeImage<T> &toCopy) {
     if (m_pData != NULL)
         free(m_pData);
 
@@ -50,8 +48,7 @@ CMyTypeImage<T>::Copy(const CMyTypeImage<T> &toCopy) {
 }
 
 template<class T>
-bool
-CMyTypeImage<T>::Resize(int width, int height, int depth, T value) {
+bool CMyTypeImage<T>::Resize(int width, int height, int depth, T value) {
     if ((width * height * depth) <= 0)
         return false;
 
@@ -75,8 +72,7 @@ CMyTypeImage<T>::Resize(int width, int height, int depth, T value) {
 
 
 template<class T>
-bool
-CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter &filter) {
+bool CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter &filter) {
     // for single channel input image only
     if (source.GetDepth() != 1)
         return false;
@@ -111,10 +107,15 @@ CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter &fil
 }
 
 template<class T>
-bool
-CMyTypeImage<T>::CopyChannel(const CMyTypeImage<T> &source, int channel) {
+bool CMyTypeImage<T>::CopyChannel(const CMyTypeImage<T> &source, int channel) {
 
     /************** todo ****************/
-
+    int size = source.m_width * source.m_height;
+    this->Resize(source.m_width, source.m_height, 1, T);
+    int currentPixel = 0;
+    for (int i = channel; i < size.; i += channel) {
+        this->m_pData[currentPixel] = source.m_pData[i];
+        currentPixel++;
+    }
     return true;
 }
