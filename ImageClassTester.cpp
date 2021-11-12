@@ -138,20 +138,21 @@ void compareFilters() {
     // test filters on 2 specific images
     for (int i = 7; i < 9; ++i) {
         cout << images[i] + "\n";
+        CMyImage sourceImage = CMyImage();
+        sourceImage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
         // test filters with different filterSizes
         for (int sizeX = 3; sizeX <= 250; sizeX+=50) {
             for (int sizeY = 3; sizeY <= 250; sizeY+=50) {
                 cout << "size: " + std::to_string(sizeX) + "x" + std::to_string(sizeY) + "\n";
-                testImage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
                 // test with meanFilter
                 start = clock();
-                testImage.MeanFilter(testImage, 3, 3);
+                testImage.MeanFilter(sourceImage, 3, 3);
                 finish = clock();
                 meanTime = (double) (finish - start) / CLOCKS_PER_SEC;
                 testImage.WriteBmpFile((string(savePath).append("meanFilter").append("(").append(std::to_string(sizeX)).append("x").append(std::to_string(sizeY)).append(")").append(images[i])).c_str());
                 // test with medianFilter
                 start = clock();
-                testImage.MedianFilter(testImage, 3, 3);
+                testImage.MedianFilter(sourceImage, 3, 3);
                 finish = clock();
                 medianTime = (double) (finish - start) / CLOCKS_PER_SEC;
                 testImage.WriteBmpFile((string(savePath).append("medianFilter").append("(").append(std::to_string(sizeX)).append("x").append(std::to_string(sizeY)).append(")").append(images[i])).c_str());

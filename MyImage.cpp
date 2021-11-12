@@ -335,7 +335,8 @@ void CMyImage::MeanFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) 
     int endMeanX;
     int endMeanY;
     int mean;
-    unsigned char *dataPointer = source.m_pData;
+    CMyImage test = CMyImage(source);
+    unsigned char *dataPointer = test.m_pData;
 
     // iterator going though all y
     for (int j = startY; j <= endY; j++) {
@@ -349,12 +350,13 @@ void CMyImage::MeanFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) 
             // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
             for (int y = startMeanY; y <= endMeanY; y++) {
                 for (int x = startMeanX; x <= endMeanX; x++) {
-                    mean += *(dataPointer + source.m_width * y + x);
+                    mean += *(dataPointer + test.m_width * y + x);
                 }
             }
-            *(dataPointer + source.m_width * j + i) = mean / size;
+            *(dataPointer + test.m_width * j + i) = mean / size;
         }
     }
+    this->Copy(test);
 }
 
 void CMyImage::MedianFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) {
@@ -368,7 +370,8 @@ void CMyImage::MedianFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3
     int startMedianY;
     int endMedianX;
     int endMedianY;
-    unsigned char *dataPointer = source.m_pData;
+    CMyImage test = CMyImage(source);
+    unsigned char *dataPointer = test.m_pData;
 
     // iterator going though all y
     for (int j = startY; j <= endY; j++) {
@@ -382,12 +385,13 @@ void CMyImage::MedianFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3
             int index = 0;
             for (int y = startMedianY; y <= endMedianY; y++) {
                 for (int x = startMedianX; x <= endMedianX; x++) {
-                    *(newpixels + index) = *(dataPointer + source.m_width * y + x);
+                    *(newpixels + index) = *(dataPointer + test.m_width * y + x);
                     index++;
                 }
             }
             quicksort(newpixels, newpixels + size);
-            *(dataPointer + source.m_width * j + i) = *(newpixels + (size / 2));
+            *(dataPointer + test.m_width * j + i) = *(newpixels + (size / 2));
         }
     }
+    this->Copy(test);
 }

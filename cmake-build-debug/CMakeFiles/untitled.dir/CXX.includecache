@@ -22,9 +22,23 @@ time.h
 fstream
 -
 
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.cpp
+MyImage.h
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.h
+math.h
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/math.h
+cstring
+-
+iostream
+-
+QuickSort.cpp
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/QuickSort.cpp
+
 /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyImage.h
 MyHisto.h
 /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h
 fstream
 -
+
+/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/QuickSort.cpp
 
