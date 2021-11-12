@@ -308,10 +308,12 @@ int CMyImage::CalcThreshByOtsu() const {
         ph_t = ph_t + histo.GetNormalizedEntry(q);
         u_t = u_t + q * histo.GetNormalizedEntry(q);
         // todo isnormal
-        double sigmaB = (u * ph_t - u_t) * (u * ph_t - u_t) / (ph_t * (1 - ph_t));
-        if (sigmaB > maxSigmaB && std::isnormal(sigmaB)) {
-            maxSigmaB = sigmaB;
-            tStar = q;
+        if(isnormal((ph_t * (1 - ph_t)))) {
+            double sigmaB = (u * ph_t - u_t) * (u * ph_t - u_t) / (ph_t * (1 - ph_t));
+            if (sigmaB > maxSigmaB) {
+                maxSigmaB = sigmaB;
+                tStar = q;
+            }
         }
     }
 
