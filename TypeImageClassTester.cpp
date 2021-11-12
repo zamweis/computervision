@@ -2,8 +2,9 @@
 //
 
 #include "MyCharImage.h"
-#include "iostream"
-
+#include <stdio.h>
+#include <iostream>
+#include <time.h>
 
 int main(int argc, char *argv[]) {
     // todo //
