@@ -1,1 +1,1 @@
-/usr/bin/c++ -g CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o -o untitled 
+/usr/bin/c++  -g   CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o  -o untitled 

@@ -42,7 +42,7 @@ public:
     // resulting image has only one channel with two values: 0 and 255
     // Attention: implementation has to be in the header-file
     template<class S>
-    bool ApplyThresh(const CMyTypeImage <S> &source, double thresh, int channel);
+    bool ApplyThresh(const CMyTypeImage<S> &source, double thresh, int channel);
 
     //......... todo later .........
 
@@ -50,12 +50,21 @@ public:
     bool RGB2HSI(const CMyCharImage &source);
 
     bool HSI2RGB(const CMyCharImage &source);
+
+    bool ApplyMeanFilter(const CMyCharImage &sourceImage);
 };
 
 template<class S>
 bool
-CMyCharImage::ApplyThresh(const CMyTypeImage <S> &source, double thresh, int channel) {
+CMyCharImage::ApplyThresh(const CMyTypeImage<S> &source, double thresh, int channel) {
     /************** todo ****************/
 
+    return true;
+}
+
+bool CMyCharImage::ApplyMeanFilter(const CMyCharImage &sourceImage) {
+    if (sourceImage.GetDepth() > 1) {
+        return false;
+    }
     return true;
 }
