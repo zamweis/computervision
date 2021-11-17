@@ -285,6 +285,33 @@ MyTypeImage.cpp.s:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyTypeImage.cpp.s
 .PHONY : MyTypeImage.cpp.s
 
+StdAfx.o: StdAfx.cpp.o
+
+.PHONY : StdAfx.o
+
+# target to build an object file
+StdAfx.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/StdAfx.cpp.o
+.PHONY : StdAfx.cpp.o
+
+StdAfx.i: StdAfx.cpp.i
+
+.PHONY : StdAfx.i
+
+# target to preprocess a source file
+StdAfx.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/StdAfx.cpp.i
+.PHONY : StdAfx.cpp.i
+
+StdAfx.s: StdAfx.cpp.s
+
+.PHONY : StdAfx.s
+
+# target to generate assembly for a file
+StdAfx.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/StdAfx.cpp.s
+.PHONY : StdAfx.cpp.s
+
 TypeImageClassTester.o: TypeImageClassTester.cpp.o
 
 .PHONY : TypeImageClassTester.o
@@ -339,6 +366,9 @@ help:
 	@echo "... MyTypeImage.o"
 	@echo "... MyTypeImage.i"
 	@echo "... MyTypeImage.s"
+	@echo "... StdAfx.o"
+	@echo "... StdAfx.i"
+	@echo "... StdAfx.s"
 	@echo "... TypeImageClassTester.o"
 	@echo "... TypeImageClassTester.i"
 	@echo "... TypeImageClassTester.s"

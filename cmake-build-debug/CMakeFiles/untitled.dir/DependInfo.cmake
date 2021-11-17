@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp" "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir/MyHisto.cpp.o"
   "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyIntImage.cpp" "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir/MyIntImage.cpp.o"
   "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyTypeImage.cpp" "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir/MyTypeImage.cpp.o"
+  "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/StdAfx.cpp" "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir/StdAfx.cpp.o"
   "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp" "/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

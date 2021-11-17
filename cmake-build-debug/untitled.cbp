@@ -118,6 +118,12 @@
 		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyTypeImage.h">
 			<Option target="untitled"/>
 		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/StdAfx.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/StdAfx.h">
+			<Option target="untitled"/>
+		</Unit>
 		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp">
 			<Option target="untitled"/>
 		</Unit>

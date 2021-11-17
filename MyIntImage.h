@@ -1,6 +1,6 @@
 #pragma once
 
-#include "mytypeimage.h"
+#include "MyTypeImage.h"
 
 class CMyIntImage : public CMyTypeImage<int> {
 public:
