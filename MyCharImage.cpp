@@ -376,3 +376,10 @@ CMyCharImage::HSI2RGB(const CMyCharImage &source) {
     /************** todo ****************/
     return true;
 }
+
+bool CMyCharImage::ApplyMeanFilter(const CMyCharImage &sourceImage) {
+    // for single channel input image only
+    if (sourceImage.GetDepth() != 1) return false;
+
+
+}

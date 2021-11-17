@@ -82,6 +82,42 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyCharImage.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyCharImage.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFilter.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFilter.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFloatImage.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFloatImage.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyIntImage.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyIntImage.h">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyTypeImage.cpp">
+			<Option target="untitled"/>
+		</Unit>
+		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyTypeImage.h">
+			<Option target="untitled"/>
+		</Unit>
 		<Unit filename="/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp">
 			<Option target="untitled"/>
 		</Unit>

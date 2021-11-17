@@ -108,12 +108,10 @@ bool CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter
 
 template<class T>
 bool CMyTypeImage<T>::CopyChannel(const CMyTypeImage<T> &source, int channel) {
-
-    /************** todo ****************/
     int size = source.m_width * source.m_height;
-    this->Resize(source.m_width, source.m_height, 1, T);
+    this->Resize(source.m_width, source.m_height, 1);
     int currentPixel = 0;
-    for (int i = channel; i < size.; i += channel) {
+    for (int i = channel; i < size; i += channel) {
         this->m_pData[currentPixel] = source.m_pData[i];
         currentPixel++;
     }

@@ -123,6 +123,168 @@ untitled/fast:
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
+MyCharImage.o: MyCharImage.cpp.o
+
+.PHONY : MyCharImage.o
+
+# target to build an object file
+MyCharImage.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyCharImage.cpp.o
+.PHONY : MyCharImage.cpp.o
+
+MyCharImage.i: MyCharImage.cpp.i
+
+.PHONY : MyCharImage.i
+
+# target to preprocess a source file
+MyCharImage.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyCharImage.cpp.i
+.PHONY : MyCharImage.cpp.i
+
+MyCharImage.s: MyCharImage.cpp.s
+
+.PHONY : MyCharImage.s
+
+# target to generate assembly for a file
+MyCharImage.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyCharImage.cpp.s
+.PHONY : MyCharImage.cpp.s
+
+MyFilter.o: MyFilter.cpp.o
+
+.PHONY : MyFilter.o
+
+# target to build an object file
+MyFilter.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyFilter.cpp.o
+.PHONY : MyFilter.cpp.o
+
+MyFilter.i: MyFilter.cpp.i
+
+.PHONY : MyFilter.i
+
+# target to preprocess a source file
+MyFilter.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyFilter.cpp.i
+.PHONY : MyFilter.cpp.i
+
+MyFilter.s: MyFilter.cpp.s
+
+.PHONY : MyFilter.s
+
+# target to generate assembly for a file
+MyFilter.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyFilter.cpp.s
+.PHONY : MyFilter.cpp.s
+
+MyFloatImage.o: MyFloatImage.cpp.o
+
+.PHONY : MyFloatImage.o
+
+# target to build an object file
+MyFloatImage.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyFloatImage.cpp.o
+.PHONY : MyFloatImage.cpp.o
+
+MyFloatImage.i: MyFloatImage.cpp.i
+
+.PHONY : MyFloatImage.i
+
+# target to preprocess a source file
+MyFloatImage.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyFloatImage.cpp.i
+.PHONY : MyFloatImage.cpp.i
+
+MyFloatImage.s: MyFloatImage.cpp.s
+
+.PHONY : MyFloatImage.s
+
+# target to generate assembly for a file
+MyFloatImage.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyFloatImage.cpp.s
+.PHONY : MyFloatImage.cpp.s
+
+MyHisto.o: MyHisto.cpp.o
+
+.PHONY : MyHisto.o
+
+# target to build an object file
+MyHisto.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyHisto.cpp.o
+.PHONY : MyHisto.cpp.o
+
+MyHisto.i: MyHisto.cpp.i
+
+.PHONY : MyHisto.i
+
+# target to preprocess a source file
+MyHisto.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyHisto.cpp.i
+.PHONY : MyHisto.cpp.i
+
+MyHisto.s: MyHisto.cpp.s
+
+.PHONY : MyHisto.s
+
+# target to generate assembly for a file
+MyHisto.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyHisto.cpp.s
+.PHONY : MyHisto.cpp.s
+
+MyIntImage.o: MyIntImage.cpp.o
+
+.PHONY : MyIntImage.o
+
+# target to build an object file
+MyIntImage.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyIntImage.cpp.o
+.PHONY : MyIntImage.cpp.o
+
+MyIntImage.i: MyIntImage.cpp.i
+
+.PHONY : MyIntImage.i
+
+# target to preprocess a source file
+MyIntImage.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyIntImage.cpp.i
+.PHONY : MyIntImage.cpp.i
+
+MyIntImage.s: MyIntImage.cpp.s
+
+.PHONY : MyIntImage.s
+
+# target to generate assembly for a file
+MyIntImage.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyIntImage.cpp.s
+.PHONY : MyIntImage.cpp.s
+
+MyTypeImage.o: MyTypeImage.cpp.o
+
+.PHONY : MyTypeImage.o
+
+# target to build an object file
+MyTypeImage.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyTypeImage.cpp.o
+.PHONY : MyTypeImage.cpp.o
+
+MyTypeImage.i: MyTypeImage.cpp.i
+
+.PHONY : MyTypeImage.i
+
+# target to preprocess a source file
+MyTypeImage.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyTypeImage.cpp.i
+.PHONY : MyTypeImage.cpp.i
+
+MyTypeImage.s: MyTypeImage.cpp.s
+
+.PHONY : MyTypeImage.s
+
+# target to generate assembly for a file
+MyTypeImage.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/MyTypeImage.cpp.s
+.PHONY : MyTypeImage.cpp.s
+
 TypeImageClassTester.o: TypeImageClassTester.cpp.o
 
 .PHONY : TypeImageClassTester.o
@@ -159,6 +321,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... untitled"
+	@echo "... MyCharImage.o"
+	@echo "... MyCharImage.i"
+	@echo "... MyCharImage.s"
+	@echo "... MyFilter.o"
+	@echo "... MyFilter.i"
+	@echo "... MyFilter.s"
+	@echo "... MyFloatImage.o"
+	@echo "... MyFloatImage.i"
+	@echo "... MyFloatImage.s"
+	@echo "... MyHisto.o"
+	@echo "... MyHisto.i"
+	@echo "... MyHisto.s"
+	@echo "... MyIntImage.o"
+	@echo "... MyIntImage.i"
+	@echo "... MyIntImage.s"
+	@echo "... MyTypeImage.o"
+	@echo "... MyTypeImage.i"
+	@echo "... MyTypeImage.s"
 	@echo "... TypeImageClassTester.o"
 	@echo "... TypeImageClassTester.i"
 	@echo "... TypeImageClassTester.s"

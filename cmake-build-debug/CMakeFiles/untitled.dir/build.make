@@ -70,17 +70,107 @@ CMakeFiles/untitled.dir/TypeImageClassTester.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/TypeImageClassTester.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/TypeImageClassTester.cpp -o CMakeFiles/untitled.dir/TypeImageClassTester.cpp.s
 
+CMakeFiles/untitled.dir/MyHisto.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/MyHisto.cpp.o: ../MyHisto.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/untitled.dir/MyHisto.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/MyHisto.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp
+
+CMakeFiles/untitled.dir/MyHisto.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/MyHisto.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp > CMakeFiles/untitled.dir/MyHisto.cpp.i
+
+CMakeFiles/untitled.dir/MyHisto.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/MyHisto.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyHisto.cpp -o CMakeFiles/untitled.dir/MyHisto.cpp.s
+
+CMakeFiles/untitled.dir/MyTypeImage.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/MyTypeImage.cpp.o: ../MyTypeImage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/untitled.dir/MyTypeImage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/MyTypeImage.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyTypeImage.cpp
+
+CMakeFiles/untitled.dir/MyTypeImage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/MyTypeImage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyTypeImage.cpp > CMakeFiles/untitled.dir/MyTypeImage.cpp.i
+
+CMakeFiles/untitled.dir/MyTypeImage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/MyTypeImage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyTypeImage.cpp -o CMakeFiles/untitled.dir/MyTypeImage.cpp.s
+
+CMakeFiles/untitled.dir/MyIntImage.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/MyIntImage.cpp.o: ../MyIntImage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/untitled.dir/MyIntImage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/MyIntImage.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyIntImage.cpp
+
+CMakeFiles/untitled.dir/MyIntImage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/MyIntImage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyIntImage.cpp > CMakeFiles/untitled.dir/MyIntImage.cpp.i
+
+CMakeFiles/untitled.dir/MyIntImage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/MyIntImage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyIntImage.cpp -o CMakeFiles/untitled.dir/MyIntImage.cpp.s
+
+CMakeFiles/untitled.dir/MyCharImage.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/MyCharImage.cpp.o: ../MyCharImage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/untitled.dir/MyCharImage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/MyCharImage.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyCharImage.cpp
+
+CMakeFiles/untitled.dir/MyCharImage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/MyCharImage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyCharImage.cpp > CMakeFiles/untitled.dir/MyCharImage.cpp.i
+
+CMakeFiles/untitled.dir/MyCharImage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/MyCharImage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyCharImage.cpp -o CMakeFiles/untitled.dir/MyCharImage.cpp.s
+
+CMakeFiles/untitled.dir/MyFloatImage.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/MyFloatImage.cpp.o: ../MyFloatImage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/untitled.dir/MyFloatImage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/MyFloatImage.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFloatImage.cpp
+
+CMakeFiles/untitled.dir/MyFloatImage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/MyFloatImage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFloatImage.cpp > CMakeFiles/untitled.dir/MyFloatImage.cpp.i
+
+CMakeFiles/untitled.dir/MyFloatImage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/MyFloatImage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFloatImage.cpp -o CMakeFiles/untitled.dir/MyFloatImage.cpp.s
+
+CMakeFiles/untitled.dir/MyFilter.cpp.o: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/MyFilter.cpp.o: ../MyFilter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/untitled.dir/MyFilter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/untitled.dir/MyFilter.cpp.o -c /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFilter.cpp
+
+CMakeFiles/untitled.dir/MyFilter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/untitled.dir/MyFilter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFilter.cpp > CMakeFiles/untitled.dir/MyFilter.cpp.i
+
+CMakeFiles/untitled.dir/MyFilter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/untitled.dir/MyFilter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/MyFilter.cpp -o CMakeFiles/untitled.dir/MyFilter.cpp.s
+
 # Object files for target untitled
 untitled_OBJECTS = \
-"CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o"
+"CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o" \
+"CMakeFiles/untitled.dir/MyHisto.cpp.o" \
+"CMakeFiles/untitled.dir/MyTypeImage.cpp.o" \
+"CMakeFiles/untitled.dir/MyIntImage.cpp.o" \
+"CMakeFiles/untitled.dir/MyCharImage.cpp.o" \
+"CMakeFiles/untitled.dir/MyFloatImage.cpp.o" \
+"CMakeFiles/untitled.dir/MyFilter.cpp.o"
 
 # External object files for target untitled
 untitled_EXTERNAL_OBJECTS =
 
 untitled: CMakeFiles/untitled.dir/TypeImageClassTester.cpp.o
+untitled: CMakeFiles/untitled.dir/MyHisto.cpp.o
+untitled: CMakeFiles/untitled.dir/MyTypeImage.cpp.o
+untitled: CMakeFiles/untitled.dir/MyIntImage.cpp.o
+untitled: CMakeFiles/untitled.dir/MyCharImage.cpp.o
+untitled: CMakeFiles/untitled.dir/MyFloatImage.cpp.o
+untitled: CMakeFiles/untitled.dir/MyFilter.cpp.o
 untitled: CMakeFiles/untitled.dir/build.make
 untitled: CMakeFiles/untitled.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable untitled"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable untitled"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
