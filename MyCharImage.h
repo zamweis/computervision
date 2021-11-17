@@ -52,6 +52,8 @@ public:
     bool HSI2RGB(const CMyCharImage &source);
 
     bool ApplyMeanFilter(const CMyCharImage &sourceImage);
+
+    void MeanFilter(const CMyCharImage &source, int sizeX, int sizeY)
 };
 
 template<class S>
@@ -66,5 +68,41 @@ bool CMyCharImage::ApplyMeanFilter(const CMyCharImage &sourceImage) {
     if (sourceImage.GetDepth() > 1) {
         return false;
     }
+    this->MeanFilter(sourceImage, 5, 5);
     return true;
+}
+
+void CMyCharImage::MeanFilter(const CMyCharImage &source, int sizeX, int sizeY) {
+    int size = source.GetHeight() * source.GetWidth();
+    int startX = sizeX / 2;
+    int startY = sizeY / 2;
+    int endX = source.GetWidth() - startX;
+    int endY = source.GetHeight() - startY;
+    int startMeanX;
+    int startMeanY;
+    int endMeanX;
+    int endMeanY;
+    int mean;
+    CMyCharImage test = CMyCharImage(source);
+    unsigned char *dataPointer = test.m_pData;
+
+    // iterator going though all y
+    for (int j = startY; j <= endY; j++) {
+        // iterator going though all x
+        for (int i = startX; i <= endX; i++) {
+            mean = 0;
+            startMeanX = i - startX;
+            startMeanY = j - startY;
+            endMeanX = i + startX;
+            endMeanY = j + startY;
+            // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
+            for (int y = startMeanY; y <= endMeanY; y++) {
+                for (int x = startMeanX; x <= endMeanX; x++) {
+                    mean += *(dataPointer + test.m_width * y + x);
+                }
+            }
+            *(dataPointer + test.m_width * j + i) = mean / size;
+        }
+    }
+    this->Copy(test);
 }
