@@ -1,3 +1,0 @@
-/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/lluks/Work/HsKA/Semester_6/Bildverarbeuitungslabor/computervision/cmake-build-debug/CMakeFiles/untitled.dir
