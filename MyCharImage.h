@@ -57,8 +57,59 @@ public:
 template<class S>
 bool
 CMyCharImage::ApplyThresh(const CMyTypeImage<S> &source, double thresh, int channel) {
-    /************** todo ****************/
+    if(source.GetWidth() * source.GetHeight() * source.GetDepth() == 0) return false;
+    this->CopyChannel(source, channel);
+    int size = m_width*m_height;
+    unsigned char *end = m_pData + size;
+    for (unsigned char *p = m_pData; p != end; ++p) {
+        if (*p <= thresh) {
+            *p = 0;
+        } else {
+            *p = 255;
+        }
+    }
+    return true;
+}
 
+bool
+CMyCharImage::ApplyMeanFilter(const CMyCharImage &sourceImage){
+    // for single channel input image only
+    if (sourceImage.GetDepth() != 1) return false;
+    int sizeX = 5;
+    int sizeY = 5;
+    int size = sizeX * sizeY;
+    int startX = sizeX / 2;
+    int startY = sizeY / 2;
+    int endX = sourceImage.GetWidth() - startX;
+    int endY = sourceImage.GetHeight() - startY;
+    int startMeanX;
+    int startMeanY;
+    int endMeanX;
+    int endMeanY;
+    int mean;
+
+    // todo: CMyIntImage instanz
+    this->CopyChannel(sourceImage, 0);
+    unsigned char *dataPointer = sourceImage.m_pData;
+
+    // iterator going though all y
+    for (int j = startY; j <= endY; j++) {
+        // iterator going though all x
+        for (int i = startX; i <= endX; i++) {
+            mean = 0;
+            startMeanX = i - startX;
+            startMeanY = j - startY;
+            endMeanX = i + startX;
+            endMeanY = j + startY;
+            // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
+            for (int y = startMeanY; y <= endMeanY; y++) {
+                for (int x = startMeanX; x <= endMeanX; x++) {
+                    mean += *(dataPointer + this->GetWidth() * y + x);
+                }
+            }
+            *(dataPointer + this->GetWidth() * j + i) = mean / size;
+        }
+    }
     return true;
 }
 

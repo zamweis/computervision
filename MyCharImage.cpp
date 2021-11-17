@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "MyCharImage.h"
 #include "MyFloatImage.h"
+#include "MyIntImage.h"
 #include "math.h"
 
 const double PI = 3.1415926535897932384626433832795;
@@ -375,10 +376,4 @@ bool
 CMyCharImage::HSI2RGB(const CMyCharImage &source) {
     /************** todo ****************/
     return true;
-}
-
-bool CMyCharImage::ApplyMeanFilter(const CMyCharImage &sourceImage) {
-    // for single channel input image only
-    if (sourceImage.GetDepth() != 1) return false;
-
 }
