@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "MyTypeImage.h"
-
+#include <cstring>
+#include <iostream>
 
 // the following declarations are necessary for linking
 template
@@ -27,12 +28,14 @@ CMyTypeImage<T>::~CMyTypeImage(void) {
 }
 
 template<class T>
-int CMyTypeImage<T>::GetStorage() const {
+int
+CMyTypeImage<T>::GetStorage() const {
     return (m_width * m_height * m_depth * sizeof(T));
 }
 
 template<class T>
-void CMyTypeImage<T>::Copy(const CMyTypeImage<T> &toCopy) {
+void
+CMyTypeImage<T>::Copy(const CMyTypeImage<T> &toCopy) {
     if (m_pData != NULL)
         free(m_pData);
 
@@ -48,7 +51,8 @@ void CMyTypeImage<T>::Copy(const CMyTypeImage<T> &toCopy) {
 }
 
 template<class T>
-bool CMyTypeImage<T>::Resize(int width, int height, int depth, T value) {
+bool
+CMyTypeImage<T>::Resize(int width, int height, int depth, T value) {
     if ((width * height * depth) <= 0)
         return false;
 
@@ -72,7 +76,8 @@ bool CMyTypeImage<T>::Resize(int width, int height, int depth, T value) {
 
 
 template<class T>
-bool CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter &filter) {
+bool
+CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter &filter) {
     // for single channel input image only
     if (source.GetDepth() != 1)
         return false;
@@ -107,13 +112,39 @@ bool CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter
 }
 
 template<class T>
-bool CMyTypeImage<T>::CopyChannel(const CMyTypeImage<T> &source, int channel) {
-    int size = source.m_width * source.m_height;
-    this->Resize(source.m_width, source.m_height, 1);
-    int currentPixel = 0;
-    for (int i = channel; i < size; i += channel) {
-        this->m_pData[currentPixel] = source.m_pData[i];
-        currentPixel++;
+bool
+CMyTypeImage<T>::CopyChannel(const CMyTypeImage<T> &source, int channel) {
+    if (channel < 0 || channel >= source.GetDepth()) return false;
+//    cout << "CopyChannel(" << channel << ")\n";
+//    Resize(source.m_width, source.m_height, 1);
+//    int size = source.GetStorage();
+//    cout << "\tsourceSize: " << source.m_width << "x" << source.m_height << "\n";
+//    cout << "\tnewSize: " <<  GetWidth() << "x" << GetHeight() << "\n";
+//    cout << "\tsourceDataSize: " << source.GetStorage() << "\n";
+//    cout << "\tnewDataSize: " << GetStorage() << "\n";
+//    // start at the given channel
+//    int sourcePixel = size * channel;
+//    int sourcePixelEnd; // debug
+//    int sourcePixelStart = sourcePixel;
+//    cout << "\tsourcePixelStart: " << sourcePixelStart << "\n";
+//    int newPixelEnd; // debug
+//    for (int i = 0; i < size; i++) {
+//        m_pData[i] = source.m_pData[sourcePixel];
+//        sourcePixelEnd = sourcePixel; // debug
+//        sourcePixel++;
+//        newPixelEnd = i; // debug
+//    }
+//    cout << "\tsourcePixelEnd: " << sourcePixelEnd << "\n";
+//    cout << "\tsourcePixelAmount: " << sourcePixelEnd - sourcePixelStart << "\n";
+//    cout << "\tnewPixelEnd: " << newPixelEnd << "\n";
+//    cout << "\tdifference: " << sourcePixelEnd - sourcePixelStart - newPixelEnd << "\n";
+    int height = source.GetHeight();
+    int width = source.GetWidth();
+    Resize(width, height, 1);
+    for (int x = 0; x < width; x++) {
+        for (int y = 0; y < height; y++) {
+            m_pData[y * width + x] = source.m_pData[y * width * source.GetDepth() + x * source.GetDepth() + channel];
+        }
     }
     return true;
 }
