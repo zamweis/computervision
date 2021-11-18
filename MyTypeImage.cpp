@@ -143,7 +143,7 @@ CMyTypeImage<T>::CopyChannel(const CMyTypeImage<T> &source, int channel) {
     Resize(width, height, 1);
     for (int x = 0; x < width; x++) {
         for (int y = 0; y < height; y++) {
-            m_pData[y * width + x] = source.m_pData[y * width * source.GetDepth() + x * source.GetDepth() + channel];
+            m_pData[y * width + x] = (int) source.m_pData[y * width * source.GetDepth() + x * source.GetDepth() + channel];
         }
     }
     return true;

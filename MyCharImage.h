@@ -52,7 +52,9 @@ public:
 
     bool HSI2RGB(const CMyCharImage &source);
 
-};
+    bool ApplyMeanFilter(const CMyCharImage &source);
+
+    };
 
 template<class S>
 bool
@@ -63,7 +65,7 @@ CMyCharImage::ApplyThresh(const CMyTypeImage<S> &source, double thresh, int chan
     this->CopyChannel(source, channel);
     cout << "\tchannel copyied\n";
     int size = m_width*m_height;
-    unsigned char *end = m_pData + size;
+    unsigned char *end = this->m_pData + size;
     for (unsigned char *p = m_pData; p != end; ++p) {
         if (*p <= thresh) {
             *p = 0;
