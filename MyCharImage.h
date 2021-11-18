@@ -59,11 +59,9 @@ public:
 template<class S>
 bool
 CMyCharImage::ApplyThresh(const CMyTypeImage<S> &source, double thresh, int channel) {
-    cout << "ApplyThresh()\n";
+    cout << "ApplyThresh(" << thresh << "x" << channel << ")\n";
     if(source.GetWidth() * source.GetHeight() * source.GetDepth() == 0) return false;
-    cout << "\tapplying thresh continues\n";
     this->CopyChannel(source, channel);
-    cout << "\tchannel copyied\n";
     int size = m_width*m_height;
     unsigned char *end = this->m_pData + size;
     for (unsigned char *p = m_pData; p != end; ++p) {

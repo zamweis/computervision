@@ -114,30 +114,8 @@ CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter &fil
 template<class T>
 bool
 CMyTypeImage<T>::CopyChannel(const CMyTypeImage<T> &source, int channel) {
+    cout << "CopyChannel(" << channel << ")\n";
     if (channel < 0 || channel >= source.GetDepth()) return false;
-//    cout << "CopyChannel(" << channel << ")\n";
-//    Resize(source.m_width, source.m_height, 1);
-//    int size = source.GetStorage();
-//    cout << "\tsourceSize: " << source.m_width << "x" << source.m_height << "\n";
-//    cout << "\tnewSize: " <<  GetWidth() << "x" << GetHeight() << "\n";
-//    cout << "\tsourceDataSize: " << source.GetStorage() << "\n";
-//    cout << "\tnewDataSize: " << GetStorage() << "\n";
-//    // start at the given channel
-//    int sourcePixel = size * channel;
-//    int sourcePixelEnd; // debug
-//    int sourcePixelStart = sourcePixel;
-//    cout << "\tsourcePixelStart: " << sourcePixelStart << "\n";
-//    int newPixelEnd; // debug
-//    for (int i = 0; i < size; i++) {
-//        m_pData[i] = source.m_pData[sourcePixel];
-//        sourcePixelEnd = sourcePixel; // debug
-//        sourcePixel++;
-//        newPixelEnd = i; // debug
-//    }
-//    cout << "\tsourcePixelEnd: " << sourcePixelEnd << "\n";
-//    cout << "\tsourcePixelAmount: " << sourcePixelEnd - sourcePixelStart << "\n";
-//    cout << "\tnewPixelEnd: " << newPixelEnd << "\n";
-//    cout << "\tdifference: " << sourcePixelEnd - sourcePixelStart - newPixelEnd << "\n";
     int height = source.GetHeight();
     int width = source.GetWidth();
     Resize(width, height, 1);

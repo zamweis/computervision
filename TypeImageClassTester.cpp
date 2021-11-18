@@ -39,13 +39,14 @@ void applyThresh() {
     int channels = rose.GetDepth();
     for (int currentChannel = 0; currentChannel < channels; currentChannel++) {
         for (double thresh = 0; thresh < 255; thresh += 25) {
-            cout << "applyThresh(" << currentChannel << "x" << thresh << "\n";
+            //cout << "applyThresh(" << currentChannel << "x" << thresh << "\n";
             CMyCharImage testImage = CMyCharImage();
             testImage.ApplyThresh(rose, thresh, currentChannel);
             // write image for check
             testImage.WriteBmpFile(
-                    (string(savePath).append("applyThresh").append("(").append(std::to_string(currentChannel)).append(
-                            "x").append(std::to_string((int)thresh)).append(")").append(images[0])).c_str());
+                    (string(savePath).append("ApplyThresh").append("(").append(
+                            std::to_string(currentChannel)).append(
+                            "x").append(std::to_string((int) thresh)).append(")").append(images[0])).c_str());
         }
     }
 }
@@ -55,17 +56,37 @@ void copyChannel() {
     // makeBinary
     rose.ReadBmpFile((string(loadPath).append(images[0])).c_str());
     int channels = rose.GetDepth();
-    cout << "depth: " << rose.GetDepth() << "\n";
+    //cout << "depth: " << rose.GetDepth() << "\n";
     for (int currentChannel = 0; currentChannel < channels; currentChannel++) {
+        //cout << "copyChannel(" << currentChannel << ")\n";
         CMyCharImage testImage = CMyCharImage();
         testImage.CopyChannel(rose, currentChannel);
-        cout << "channel copied\n";
-        testImage.WriteBmpFile((string(savePath).append("Channel_").append(std::to_string(currentChannel)).append("_").append(
-                images[0])).c_str());
-        cout << "image saved\n";
+        //cout << "channel copied\n";
+        testImage.WriteBmpFile(
+                (string(savePath).append("CopyChannel").append(std::to_string(currentChannel)).append("_").append(
+                        images[0])).c_str());
+        //cout << "image saved\n";
     }
 }
 
 void applyMeanFilter() {
-
+    // makeBinary
+    for (int i = 0; i < images->size(); ++i) {
+        CMyCharImage testimage = CMyCharImage();
+        testimage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
+        int channels = testimage.GetDepth();
+        //cout << "depth: " << testimage.GetDepth() << "\n";
+        cout << "\timage: " << images[i] << "\n";
+        for (int currentChannel = 0; currentChannel < channels; currentChannel++) {
+            CMyCharImage meanImage = CMyCharImage();
+            meanImage.CopyChannel(testimage, currentChannel);
+            cout << "\tchannel " << currentChannel << " copied\n";
+            meanImage.ApplyMeanFilter(testimage);
+            cout << "\tMeanfilter applied\n";
+            meanImage.WriteBmpFile(
+                    (string(savePath).append("MeanFilter_").append(std::to_string(currentChannel)).append("_").append(
+                            images[i])).c_str());
+            cout << "\tsaved\n";
+        }
+    }
 }

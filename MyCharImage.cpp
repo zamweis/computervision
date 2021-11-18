@@ -380,8 +380,10 @@ CMyCharImage::HSI2RGB(const CMyCharImage &source) {
 
 bool
 CMyCharImage::ApplyMeanFilter(const CMyCharImage &source) {
-    if(source.GetDepth() > 1 || source.GetWidth() * source.GetHeight() * source.GetDepth() == 0) return false;
+    cout << "ApplyMeanFilter()\n";
 
+    if(source.GetDepth() > 1 || source.GetWidth() * source.GetHeight() * source.GetDepth() == 0) return false;
+    //cout << "\tdimensions OK\n";
     int size = 5 * 5;
     int startX = 5 / 2;
     int startY = 5 / 2;
@@ -392,8 +394,8 @@ CMyCharImage::ApplyMeanFilter(const CMyCharImage &source) {
     int endMeanX;
     int endMeanY;
     int mean;
-    CMyCharImage test = CMyCharImage(source);
-    unsigned char *dataPointer = test.m_pData;
+    unsigned char *dataPointer = m_pData;
+    //cout << "\tdataPointer OK\n";
 
     // iterator going though all y
     for (int j = startY; j <= endY; j++) {
@@ -407,13 +409,11 @@ CMyCharImage::ApplyMeanFilter(const CMyCharImage &source) {
             // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
             for (int y = startMeanY; y <= endMeanY; y++) {
                 for (int x = startMeanX; x <= endMeanX; x++) {
-                    mean += *(dataPointer + test.m_width * y + x);
+                    mean += *(dataPointer + m_width * y + x);
                 }
             }
-            *(dataPointer + test.m_width * j + i) = mean / size;
+            *(dataPointer + m_width * j + i) = mean / size;
         }
     }
-    this->Copy(test);
-
     return true;
 }
