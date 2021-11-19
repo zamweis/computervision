@@ -382,7 +382,8 @@ bool
 CMyCharImage::ApplyMeanFilter(const CMyCharImage &source) {
     cout << "ApplyMeanFilter()\n";
 
-    if(source.GetDepth() > 1 || source.GetWidth() * source.GetHeight() * source.GetDepth() == 0) return false;
+    if(source.GetDepth() != 1 || source.GetWidth() * source.GetHeight() * source.GetDepth() == 0) return false;
+
     //cout << "\tdimensions OK\n";
     int size = 5 * 5;
     int startX = 5 / 2;
@@ -416,4 +417,10 @@ CMyCharImage::ApplyMeanFilter(const CMyCharImage &source) {
         }
     }
     return true;
+
+
+    CMyIntImage intImage = CMyIntImage();
+    intImage.Resize(source.GetWidth(), source.GetHeight(), 1);
+    auto pointer [5];
+
 }
