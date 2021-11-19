@@ -325,6 +325,7 @@ int CMyImage::CalcThreshByOtsu() const {
 }
 
 void CMyImage::MeanFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) {
+    Resize(source.GetWidth(), source.GetHeight());
     int size = sizeX * sizeY;
     int startX = sizeX / 2;
     int startY = sizeY / 2;
@@ -335,8 +336,8 @@ void CMyImage::MeanFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) 
     int endMeanX;
     int endMeanY;
     int mean;
-    CMyImage test = CMyImage(source);
-    unsigned char *dataPointer = test.m_pData;
+    unsigned char *dataPointer = source.m_pData;
+    unsigned char *thisDataPointer = m_pData;
 
     // iterator going though all y
     for (int j = startY; j <= endY; j++) {
@@ -350,16 +351,16 @@ void CMyImage::MeanFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) 
             // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
             for (int y = startMeanY; y <= endMeanY; y++) {
                 for (int x = startMeanX; x <= endMeanX; x++) {
-                    mean += *(dataPointer + test.m_width * y + x);
+                    mean += *(dataPointer + m_width * y + x);
                 }
             }
-            *(dataPointer + test.m_width * j + i) = mean / size;
+            *(thisDataPointer + m_width * j + i) = mean / size;
         }
     }
-    this->Copy(test);
 }
 
 void CMyImage::MedianFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3) {
+    Resize(source.GetWidth(), source.GetHeight());
     int size = sizeX * sizeY;
     int *newpixels = (int *) malloc(size * sizeof(int));
     int startX = sizeX / 2;
@@ -370,8 +371,8 @@ void CMyImage::MedianFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3
     int startMedianY;
     int endMedianX;
     int endMedianY;
-    CMyImage test = CMyImage(source);
-    unsigned char *dataPointer = test.m_pData;
+    unsigned char *dataPointer = source.m_pData;
+    unsigned char *thisDataPointer = m_pData;
 
     // iterator going though all y
     for (int j = startY; j <= endY; j++) {
@@ -385,13 +386,12 @@ void CMyImage::MedianFilter(const CMyImage &source, int sizeX = 3, int sizeY = 3
             int index = 0;
             for (int y = startMedianY; y <= endMedianY; y++) {
                 for (int x = startMedianX; x <= endMedianX; x++) {
-                    *(newpixels + index) = *(dataPointer + test.m_width * y + x);
+                    *(newpixels + index) = *(dataPointer + m_width * y + x);
                     index++;
                 }
             }
             quicksort(newpixels, newpixels + size);
-            *(dataPointer + test.m_width * j + i) = *(newpixels + (size / 2));
+            *(thisDataPointer + m_width * j + i) = *(newpixels + (size / 2));
         }
     }
-    this->Copy(test);
 }
