@@ -1,9 +1,9 @@
 //
 // Created by lluks on 19/11/2021.
 //
+#include <iostream>
+#include <vector>
 
-#ifndef UNTITLED_MYPRIMITIVE_H
-#define UNTITLED_MYPRIMITIVE_H
 
 struct CMyPoint {
     int m_x;
@@ -28,17 +28,19 @@ struct CMyPoint {
 
 class CMyPrimitive {
 public :
-    vector <CMyPoint> m_points;
+    std::vector<CMyPoint> m_points;
 public :
     CMyPrimitive(void);
 
     ~CMyPrimitive(void);
 
-    void Reset() { m_points.empty(); };
+    void Reset() {
+        m_points.empty();
+    };
 
-    void Resize(int size) { m_points.resize(size); };
+    void Resize(int size) {
+        m_points.resize(size);
+    };
 
     void Append(int x, int y);
 };
-
-#endif //UNTITLED_MYPRIMITIVE_H

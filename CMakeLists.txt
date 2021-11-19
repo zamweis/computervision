@@ -3,4 +3,4 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(untitled TypeImageClassTester.cpp MyHisto.cpp MyTypeImage.cpp MyIntImage.cpp MyCharImage.cpp MyFloatImage.cpp MyTypeImage.cpp MyFilter.cpp StdAfx.cpp)
+add_executable(untitled TypeImageClassTester.cpp MyHisto.cpp MyTypeImage.cpp MyIntImage.cpp MyCharImage.cpp MyFloatImage.cpp MyTypeImage.cpp MyFilter.cpp StdAfx.cpp MyPrimitive.cpp)
