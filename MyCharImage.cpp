@@ -382,38 +382,49 @@ bool
 CMyCharImage::ApplyMeanFilter(const CMyCharImage &source) {
     cout << "ApplyMeanFilter()\n";
 
-    if(source.GetDepth() > 1 || source.GetWidth() * source.GetHeight() * source.GetDepth() == 0) return false;
-    //cout << "\tdimensions OK\n";
-    int size = 5 * 5;
+    if (source.GetDepth() != 1) return false;
+
+    int size = 25;
     int startX = 5 / 2;
     int startY = 5 / 2;
     int endX = source.GetWidth() - startX;
     int endY = source.GetHeight() - startY;
-    int startMeanX;
-    int startMeanY;
-    int endMeanX;
-    int endMeanY;
-    int mean;
-    unsigned char *dataPointer = m_pData;
-    //cout << "\tdataPointer OK\n";
+    CMyIntImage intImage = CMyIntImage();
+    intImage.Resize(source.GetWidth(), source.GetHeight(), 1);
+    Resize(source.GetWidth(), source.GetHeight(), 1);
+    unsigned char *dataPointer = (unsigned char *) source.GetData() + startX;
+    unsigned int *destinationDataPointer = (unsigned int *) intImage.GetData() + startX;
 
     // iterator going though all y
-    for (int j = startY; j <= endY; j++) {
+    for (int j = 0; j < m_height; j++) {
         // iterator going though all x
-        for (int i = startX; i <= endX; i++) {
-            mean = 0;
-            startMeanX = i - startX;
-            startMeanY = j - startY;
-            endMeanX = i + startX;
-            endMeanY = j + startY;
-            // iterator to calc mean of all pixels around destination pixel (sizeX x sizeY)
-            for (int y = startMeanY; y <= endMeanY; y++) {
-                for (int x = startMeanX; x <= endMeanX; x++) {
-                    mean += *(dataPointer + m_width * y + x);
-                }
+        for (int i = startX; i < endX; i++) {
+            for (int x = -startX; x <= startX; x++) {
+                *destinationDataPointer += *(dataPointer + x);
             }
-            *(dataPointer + m_width * j + i) = mean / size;
+            dataPointer++;
+            destinationDataPointer++;
         }
+        dataPointer += 4;
+        destinationDataPointer += 4;
+    }
+
+    unsigned int *sourceDataPointer = (unsigned int *) intImage.GetData() + startX + startY * m_width;
+    auto *thisDataPointer = m_pData + startX + (startY) * m_width;
+    // iterator going though all x
+    for (int i = startY; i < endY; i++) {
+        for (int j = startX; j < endX; j++) {
+            // iterator going though all y
+            int puffer = 0;
+            for (int y = -startY; y <= startY; y++) {
+                puffer += *(sourceDataPointer + y * m_width);
+            }
+            *thisDataPointer = puffer / 25;
+            thisDataPointer++;
+            sourceDataPointer++;
+        }
+        thisDataPointer += 4;
+        sourceDataPointer += 4;
     }
     return true;
 }
