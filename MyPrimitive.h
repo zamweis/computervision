@@ -42,5 +42,13 @@ public :
         m_points.resize(size);
     };
 
-    void Append(int x, int y);
+    int GetSize() {
+        return m_points.size();
+    };
+
+    void Append(int x, int y) {
+        if (x >= 0 && y >= 0) {
+            m_points.push_back(CMyPoint(x, y));
+        }
+    };
 };

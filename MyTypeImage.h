@@ -2,6 +2,7 @@
 
 #include "MyHisto.h"
 #include "MyFilter.h"
+#include "MyPrimitive.h"
 #include <fstream>
 
 using namespace std;
@@ -50,6 +51,8 @@ public:
     bool CopyChannel(const CMyTypeImage<T> &source, int channel);
 
     bool ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter &filter);
+
+    bool ExtractNextContour(CMyPrimitive& pixelList, int size = 3);
 };
 
 

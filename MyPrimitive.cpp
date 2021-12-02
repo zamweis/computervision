@@ -12,7 +12,3 @@ CMyPrimitive::CMyPrimitive(void) {
 CMyPrimitive::~CMyPrimitive(void) {
 
 }
-
-void CMyPrimitive::Append(int x, int y) {
-
-}
