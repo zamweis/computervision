@@ -134,26 +134,53 @@ CMyTypeImage<T>::ExtractNextContour(CMyPrimitive &pixelList, int size) {
     if (size < 1 || size > GetHeight() || size > GetWidth()) return false;
     int height = GetHeight();
     int width = GetWidth();
-    // memorize the position of the current last pixel in the list
-    int pixelAmount = pixelList.GetSize();
-    int position;
-    // define the matrix in which we compare pixels
-    int offset = -size / 2;
-    int offsetEndX;
-    int offsetEndY;
-    // go though all pixels in pixelList
-    for (int i = 0; i < pixelAmount; i++) {
-        offsetEndX = pixelList.m_points[i].m_x - offset;
-        for (int x = pixelList.m_points[i].m_x + offset; x < offsetEndX; x++) {
-            offsetEndY = pixelList.m_points[i].m_y - offset;
-            for (int y = pixelList.m_points[i].m_y + offset; y < offsetEndY; y++) {
-                position = pixelList.m_points[i].m_y * width + pixelList.m_points[i].m_x;
-                if (m_pData[position] > 0) {
-                    pixelList.Append(pixelList.m_points[i].m_x, pixelList.m_points[i].m_y);
-                    m_pData[position] = 0;
-                }
+    CMyPrimitive contourPixels = CMyPrimitive();
+    // find the first pixel
+    for (int y = 0; y < height; y++) {
+        for (int x = 0; x < width; x++) {
+            if (m_pData[y * width + x] > 0) {
+                pixelList.Append(x, y);
+                contourPixels.Append(x, y);
+                m_pData[y * width + x] = 0;
+                cout << "first pixel: " << x << ", " << y << "\n";
+                // end loop when startPixel found
+                x = width;
+                y = height;
             }
         }
     }
+    int offset = size / 2;
+    // check surrounding matrix for contour pixels
+    while (contourPixels.GetSize() > 0) {
+        CMyPoint currentPixel = contourPixels.m_points.at(0);
+        cout << "current pixel: " << currentPixel.m_x << ", " << currentPixel.m_y << "\n";
+        int position;
+        // define the matrix in which we compare pixels
+        // go though all pixels in pixelList
+        for (int y = -offset; y <= offset; y++) {
+            for (int x = -offset; x <= offset; x++) {
+                //cout << "\tchecking pixel: " << x << ", " << y << "...\n";
+                int currentX = currentPixel.m_x + x;
+                int currentY = currentPixel.m_y + y;
+                position = currentY * GetWidth() + currentX;
+                //cout << "\tposition: " << position << "\n";
+                if (m_pData[position] > 0) {
+                    // append contour pixels
+                    pixelList.Append(currentX, currentY);
+                    contourPixels.Append(currentX, currentY);
+                    m_pData[position] = 0;
+                    cout << "\tmatching pixel: " << currentX << ", " << currentY << "\n";
+                }
+            }
+        }
+        // remove current pixel from temp list
+        contourPixels.m_points.erase(contourPixels.m_points.begin());
+    }
+    /*
+    cout << "pixelList: \n";
+    for (int i = 0; i < pixelList.GetSize(); ++i) {
+        cout << pixelList.m_points[i].m_x << ", " << pixelList.m_points[i].m_y << "\n";
+    }
+    */
     return true;
 }

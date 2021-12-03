@@ -23,12 +23,15 @@ void copyChannel();
 
 void applyMeanFilter();
 
-string images[] = {"Rose.bmp", "Pedestrians1.bmp", "Pedestrians2.bmp"};
+void nextContour();
+
+string images[] = {"Rose.bmp", "Pedestrians1.bmp", "Pedestrians2.bmp", "Kreis.bmp"};
 
 int main(int argc, char *argv[]) {
     //copyChannel();
     //applyThresh();
-    applyMeanFilter();
+    // applyMeanFilter();
+    nextContour();
     return 0;
 }
 
@@ -89,4 +92,11 @@ void applyMeanFilter() {
             cout << "\tsaved\n";
         }
     }
+}
+
+void nextContour(){
+    CMyCharImage testimage = CMyCharImage();
+    testimage.ReadBmpFile((string(loadPath).append(images[3])).c_str());
+    CMyPrimitive globalList = CMyPrimitive();
+    testimage.ExtractNextContour(globalList);
 }
