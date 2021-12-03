@@ -4,9 +4,6 @@
 
 #include "MyPrimitive.h"
 #include "math.h"
-#include <iostream>
-#include <stdio.h>
-#include "iostream"
 
 
 CMyPrimitive::CMyPrimitive(void) {

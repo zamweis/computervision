@@ -368,7 +368,41 @@ CMyCharImage::DifferenceImage(const CMyCharImage &image1, const CMyCharImage &im
 
 bool
 CMyCharImage::RGB2HSI(const CMyCharImage &source) {
-    /************** todo ****************/
+    for (int y = 0; y < source.GetHeight(); ++y) {
+        for (int x = 0; x < source.GetWidth(); ++x) {
+            double r = source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 0] / 255.0;
+            double g = source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 1] / 255.0;
+            double b = source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 2] / 255.0;
+            double m = min(r, min(g, b));
+            double h;
+            if (r == g && r == b) {
+                h = 0;
+            } else {
+                double phi = acos(0.5 * ((r - g) + (r - b)) / sqrt((r - g) * (r - g) + (r - b) * (g - b)));
+                if (b <= g) {
+                    h = phi;
+                } else {
+                    h = 2 * M_PI - phi;
+                }
+            }
+            double s;
+            if (r == g && r == b) {
+                s = 0;
+            } else {
+                s = 1.0 - 3.0 * m / (r + g + b);
+            }
+            double i = (r + g + b) / 3.0;
+            h = (char) (h * 180.0 / 2 * M_PI);
+            s = (char) (s * 255.0);
+            i = (char) (i * 255.0);
+            if (h > 255) h=(char) 255;
+            if (s > 255) s=(char) 255;
+            if (i > 255) i=(char) 255;
+            if (h < 0) h=(char) 0;
+            if (s < 0) s=(char) 0;
+            if (i < 0) i=(char) 0;
+        }
+    }
     return true;
 }
 
