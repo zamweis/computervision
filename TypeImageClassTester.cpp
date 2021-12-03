@@ -108,6 +108,6 @@ void nextContour(){
     double my;
     double r;
     globalList.FitCircle(mx, my, r);
-    data[(int)(my * (double) testimage.GetWidth() + mx)] = 255;
+    data[((int)my * testimage.GetWidth() + (int)mx)] = 255;
     testimage.WriteBmpFile((string(savePath).append("FitCircleDrawn").append("_").append(images[3])).c_str());
 }
