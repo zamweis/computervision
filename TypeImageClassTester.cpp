@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <time.h>
+#include <vector>
 
 #define ABSOLUTE
 // resize image
@@ -25,7 +26,8 @@ void applyMeanFilter();
 
 void nextContour();
 
-string images[] = {"Rose.bmp", "Pedestrians1.bmp", "Pedestrians2.bmp", "Kreis.bmp"};
+vector<string> images = {"Kreis.bmp", "KreisViertel.bmp", "KreisPunkte.bmp", "KreisHalb.bmp", "KreisGerade.bmp", "Kreis3Punkte.bmp", "Kreis2Punkte.bmp"};
+
 
 int main(int argc, char *argv[]) {
     //copyChannel();
@@ -74,7 +76,7 @@ void copyChannel() {
 
 void applyMeanFilter() {
     // makeBinary
-    for (int i = 0; i < images->size(); ++i) {
+    for (int i = 0; i < images.size(); ++i) {
         CMyCharImage testimage = CMyCharImage();
         testimage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
         int channels = testimage.GetDepth();
@@ -95,19 +97,21 @@ void applyMeanFilter() {
 }
 
 void nextContour(){
-    CMyCharImage testimage = CMyCharImage();
-    testimage.ReadBmpFile((string(loadPath).append(images[3])).c_str());
-    CMyPrimitive globalList = CMyPrimitive();
-    testimage.ExtractNextContour(globalList);
-    unsigned char * data = (unsigned char*) testimage.GetData();
-    testimage.WriteBmpFile((string(savePath).append("FitCircle").append("_").append(images[3])).c_str());
-    for (CMyPoint p: globalList.m_points) {
-        data[p.m_y * testimage.GetWidth() + p.m_x] = 255;
+    for (int i = 0; i < images.size(); i++) {
+        CMyCharImage testimage = CMyCharImage();
+        testimage.ReadBmpFile((string(loadPath).append(images[i])).c_str());
+        CMyPrimitive globalList = CMyPrimitive();
+        testimage.ExtractNextContour(globalList);
+        unsigned char *data = (unsigned char *) testimage.GetData();
+        //testimage.WriteBmpFile((string(savePath).append("FitCircle").append("_").append(images[i])).c_str());
+        for (CMyPoint p: globalList.m_points) {
+            data[p.m_y * testimage.GetWidth() + p.m_x] = 255;
+        }
+        double mx;
+        double my;
+        double r;
+        globalList.FitCircle(mx, my, r);
+        data[((int) my * testimage.GetWidth() + (int) mx)] = 255;
+        testimage.WriteBmpFile((string(savePath).append("FitCircleDrawn").append("_").append(images[i])).c_str());
     }
-    double mx;
-    double my;
-    double r;
-    globalList.FitCircle(mx, my, r);
-    data[((int)my * testimage.GetWidth() + (int)mx)] = 255;
-    testimage.WriteBmpFile((string(savePath).append("FitCircleDrawn").append("_").append(images[3])).c_str());
 }

@@ -46,6 +46,6 @@ bool CMyPrimitive::FitCircle(double &mx, double &my, double &r) {
         r += sqrt(m_points[i].m_x * m_points[i].m_x + m_points[i].m_y * m_points[i].m_y);
     }
     r /= m;
-    std::cout << "radius: " << r << ", mx: " << mx << ", my: " << my <<"\n";
+    //std::cout << "radius: " << r << ", mx: " << mx << ", my: " << my <<"\n";
     return true;
 }
