@@ -378,7 +378,7 @@ CMyCharImage::RGB2HSI(const CMyCharImage &source) {
             if (r == g && r == b) {
                 h = 0;
             } else {
-                double phi = acos(0.5 * ((r - g) + (r - b)) / sqrt((r - g) * (r - g) + (r - b) * (g - b)));
+                double phi = acos((0.5 * ((r - g) + (r - b))) / sqrt((r - g) * (r - g) + (r - b) * (g - b)));
                 if (b <= g) {
                     h = phi;
                 } else {
@@ -392,18 +392,18 @@ CMyCharImage::RGB2HSI(const CMyCharImage &source) {
                 s = 1.0 - 3.0 * m / (r + g + b);
             }
             double i = (r + g + b) / 3.0;
-            h = (char) (h * 180.0 / 2 * M_PI);
-            s = (char) (s * 255.0);
-            i = (char) (i * 255.0);
-            if (h > 255) h=(char) 255;
-            if (s > 255) s=(char) 255;
-            if (i > 255) i=(char) 255;
-            if (h < 0) h=(char) 0;
-            if (s < 0) s=(char) 0;
-            if (i < 0) i=(char) 0;
-            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 0] = h;
-            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 1] = s;
-            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 2] = i;
+            h = h * 180.0 / 2 * M_PI;
+            s = s * 255.0;
+            i = i * 255.0;
+            if (h > 255) h = 255;
+            if (s > 255) s = 255;
+            if (i > 255) i = 255;
+            if (h < 0) h = 0;
+            if (s < 0) s = 0;
+            if (i < 0) i = 0;
+            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 0] = (char) h;
+            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 1] = (char) s;
+            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 2] = (char) i;
         }
     }
     return true;

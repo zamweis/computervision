@@ -132,7 +132,7 @@ void rgb2hsi(){
             CMyCharImage tmp = CMyCharImage();
             tmp.CopyChannel(testimage, currentChannel);
             //cout << "channel copied\n";
-            tmp.WriteBmpFile((string(savePath).append("RGB2HSI").append(std::to_string(currentChannel)).append("_").append(imagesRGB[i])).c_str());
+            tmp.WriteBmpFile((string(savePath).append("RGB2HSI").append(imagesRGB[i]).append("_").append(std::to_string(currentChannel))).c_str());
             //cout << "image saved\n";
         }
         testimage.WriteBmpFile((string(savePath).append("RGB2HSI").append("_").append(imagesRGB[i])).c_str());
