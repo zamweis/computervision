@@ -26,14 +26,18 @@ void applyMeanFilter();
 
 void nextContour();
 
+void rgb2hsi();
+
 vector<string> images = {"Kreis.bmp", "KreisViertel.bmp", "KreisPunkte.bmp", "KreisHalb.bmp", "KreisGerade.bmp", "Kreis3Punkte.bmp", "Kreis2Punkte.bmp"};
+vector<string> imagesRGB = {"Spielzeug.bmp", "Rose.bmp", "Ferrari.bmp"};
 
 
 int main(int argc, char *argv[]) {
     //copyChannel();
     //applyThresh();
-    // applyMeanFilter();
-    nextContour();
+    //applyMeanFilter();
+    //nextContour();
+    rgb2hsi();
     return 0;
 }
 
@@ -113,5 +117,24 @@ void nextContour(){
         globalList.FitCircle(mx, my, r);
         data[((int) my * testimage.GetWidth() + (int) mx)] = 255;
         testimage.WriteBmpFile((string(savePath).append("FitCircleDrawn").append("_").append(images[i])).c_str());
+    }
+}
+
+void rgb2hsi(){
+    for (int i = 0; i < imagesRGB.size(); i++) {
+        CMyCharImage testimage = CMyCharImage();
+        testimage.ReadBmpFile((string(loadPath).append(imagesRGB[i])).c_str());
+        testimage.RGB2HSI(testimage);
+        int channels = testimage.GetDepth();
+        //cout << "depth: " << rose.GetDepth() << "\n";
+        for (int currentChannel = 0; currentChannel < channels; currentChannel++) {
+            //cout << "copyChannel(" << currentChannel << ")\n";
+            CMyCharImage tmp = CMyCharImage();
+            tmp.CopyChannel(testimage, currentChannel);
+            //cout << "channel copied\n";
+            tmp.WriteBmpFile((string(savePath).append("RGB2HSI").append(std::to_string(currentChannel)).append("_").append(imagesRGB[i])).c_str());
+            //cout << "image saved\n";
+        }
+        testimage.WriteBmpFile((string(savePath).append("RGB2HSI").append("_").append(imagesRGB[i])).c_str());
     }
 }

@@ -114,7 +114,7 @@ CMyTypeImage<T>::ApplyFilter(const CMyTypeImage<T> &source, const CMyFilter &fil
 template<class T>
 bool
 CMyTypeImage<T>::CopyChannel(const CMyTypeImage<T> &source, int channel) {
-    cout << "CopyChannel(" << channel << ")\n";
+    //cout << "CopyChannel(" << channel << ")\n";
     if (channel < 0 || channel >= source.GetDepth()) return false;
     int height = source.GetHeight();
     int width = source.GetWidth();

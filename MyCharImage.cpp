@@ -401,6 +401,9 @@ CMyCharImage::RGB2HSI(const CMyCharImage &source) {
             if (h < 0) h=(char) 0;
             if (s < 0) s=(char) 0;
             if (i < 0) i=(char) 0;
+            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 0] = h;
+            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 1] = s;
+            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 2] = i;
         }
     }
     return true;
