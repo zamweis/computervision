@@ -134,23 +134,26 @@ CMyTypeImage<T>::ExtractNextContour(CMyPrimitive &pixelList, int size) {
     if (size < 1 || size > GetHeight() || size > GetWidth()) return false;
     int height = GetHeight();
     int width = GetWidth();
+    // memorize the position of the current last pixel in the list
     int pixelAmount = pixelList.GetSize();
-    CMyPrimitive nextContours = CMyPrimitive();
     int position;
+    // define the matrix in which we compare pixels
+    int offset = -size / 2;
+    int offsetEndX;
+    int offsetEndY;
+    // go though all pixels in pixelList
     for (int i = 0; i < pixelAmount; i++) {
-        for (int x = 0; x <; x++) {
-            for (int y = 0; y <; y++) {
+        offsetEndX = pixelList.m_points[i].m_x - offset;
+        for (int x = pixelList.m_points[i].m_x + offset; x < offsetEndX; x++) {
+            offsetEndY = pixelList.m_points[i].m_y - offset;
+            for (int y = pixelList.m_points[i].m_y + offset; y < offsetEndY; y++) {
                 position = pixelList.m_points[i].m_y * width + pixelList.m_points[i].m_x;
                 if (m_pData[position] > 0) {
-                    nextContours.Append(pixelList.m_points[i].m_x, pixelList.m_points[i].m_y);
+                    pixelList.Append(pixelList.m_points[i].m_x, pixelList.m_points[i].m_y);
                     m_pData[position] = 0;
                 }
             }
         }
-    }
-    // append all contour pixels
-    for (int i = 0; i < nextContours.GetSize(); i++) {
-        pixelList.Append(nextContours.m_points[i].m_x, nextContours.m_points[i].m_y);
     }
     return true;
 }
