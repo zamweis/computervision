@@ -46,9 +46,7 @@ public :
         return m_points.size();
     };
 
-    void Append(int x, int y) {
-        if (x >= 0 && y >= 0) {
-            m_points.push_back(CMyPoint(x, y));
-        }
-    };
+    void Append(int x, int y);
+
+    bool FitCircle(double &mx, double &my, double &r);
 };

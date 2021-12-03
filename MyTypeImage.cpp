@@ -134,13 +134,23 @@ CMyTypeImage<T>::ExtractNextContour(CMyPrimitive &pixelList, int size) {
     if (size < 1 || size > GetHeight() || size > GetWidth()) return false;
     int height = GetHeight();
     int width = GetWidth();
-    for (int x = 0; x < width; x++) {
-        for (int y = 0; y < height; y++) {
-            if (m_pData[y * width + x] > 0) {
-                pixelList.Append(x, y);
-                m_pData[y * width + x] = 0;
+    int pixelAmount = pixelList.GetSize();
+    CMyPrimitive nextContours = CMyPrimitive();
+    int position;
+    for (int i = 0; i < pixelAmount; i++) {
+        for (int x = 0; x <; x++) {
+            for (int y = 0; y <; y++) {
+                position = pixelList.m_points[i].m_y * width + pixelList.m_points[i].m_x;
+                if (m_pData[position] > 0) {
+                    nextContours.Append(pixelList.m_points[i].m_x, pixelList.m_points[i].m_y);
+                    m_pData[position] = 0;
+                }
             }
         }
+    }
+    // append all contour pixels
+    for (int i = 0; i < nextContours.GetSize(); i++) {
+        pixelList.Append(nextContours.m_points[i].m_x, nextContours.m_points[i].m_y);
     }
     return true;
 }
