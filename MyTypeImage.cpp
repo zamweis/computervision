@@ -142,7 +142,7 @@ CMyTypeImage<T>::ExtractNextContour(CMyPrimitive &pixelList, int size) {
                 pixelList.Append(x, y);
                 contourPixels.Append(x, y);
                 m_pData[y * width + x] = 0;
-                cout << "first pixel: " << x << ", " << y << "\n";
+                //cout << "first pixel: " << x << ", " << y << "\n";
                 // end loop when startPixel found
                 x = width;
                 y = height;
@@ -153,7 +153,7 @@ CMyTypeImage<T>::ExtractNextContour(CMyPrimitive &pixelList, int size) {
     // check surrounding matrix for contour pixels
     while (contourPixels.GetSize() > 0) {
         CMyPoint currentPixel = contourPixels.m_points.at(0);
-        cout << "current pixel: " << currentPixel.m_x << ", " << currentPixel.m_y << "\n";
+        //cout << "current pixel: " << currentPixel.m_x << ", " << currentPixel.m_y << "\n";
         int position;
         // define the matrix in which we compare pixels
         // go though all pixels in pixelList
@@ -169,7 +169,7 @@ CMyTypeImage<T>::ExtractNextContour(CMyPrimitive &pixelList, int size) {
                     pixelList.Append(currentX, currentY);
                     contourPixels.Append(currentX, currentY);
                     m_pData[position] = 0;
-                    cout << "\tmatching pixel: " << currentX << ", " << currentY << "\n";
+                    //cout << "\tmatching pixel: " << currentX << ", " << currentY << "\n";
                 }
             }
         }

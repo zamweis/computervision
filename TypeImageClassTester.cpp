@@ -99,4 +99,15 @@ void nextContour(){
     testimage.ReadBmpFile((string(loadPath).append(images[3])).c_str());
     CMyPrimitive globalList = CMyPrimitive();
     testimage.ExtractNextContour(globalList);
+    unsigned char * data = (unsigned char*) testimage.GetData();
+    testimage.WriteBmpFile((string(savePath).append("FitCircle").append("_").append(images[3])).c_str());
+    for (CMyPoint p: globalList.m_points) {
+        data[p.m_y * testimage.GetWidth() + p.m_x] = 255;
+    }
+    double mx;
+    double my;
+    double r;
+    globalList.FitCircle(mx, my, r);
+    data[(int)(my * (double) testimage.GetWidth() + mx)] = 255;
+    testimage.WriteBmpFile((string(savePath).append("FitCircleDrawn").append("_").append(images[3])).c_str());
 }
