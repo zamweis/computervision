@@ -370,12 +370,13 @@ bool
 CMyCharImage::RGB2HSI(const CMyCharImage &source) {
     for (int y = 0; y < source.GetHeight(); ++y) {
         for (int x = 0; x < source.GetWidth(); ++x) {
-            double r = source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 0] / 255.0;
-            double g = source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 1] / 255.0;
-            double b = source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 2] / 255.0;
+            int p = y * GetWidth() * source.GetDepth() + x * source.GetDepth();
+            double r = source.m_pData[p] / 255.0;
+            double g = source.m_pData[p + 1] / 255.0;
+            double b = source.m_pData[p + 2] / 255.0;
             double m = min(r, min(g, b));
             double h;
-            if (r == g && r == b) {
+            if (r == g && g == b) {
                 h = 0;
             } else {
                 double phi = acos((0.5 * ((r - g) + (r - b))) / sqrt((r - g) * (r - g) + (r - b) * (g - b)));
@@ -401,9 +402,9 @@ CMyCharImage::RGB2HSI(const CMyCharImage &source) {
             if (h < 0) h = 0;
             if (s < 0) s = 0;
             if (i < 0) i = 0;
-            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 0] = (char) h;
-            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 1] = (char) s;
-            source.m_pData[y * GetWidth() * source.GetDepth() + x * source.GetDepth() + 2] = (char) i;
+            source.m_pData[p] = (unsigned char) h;
+            source.m_pData[p + 1] = (unsigned char) s;
+            source.m_pData[p + 2] = (unsigned char) i;
         }
     }
     return true;

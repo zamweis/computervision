@@ -28,15 +28,15 @@ void nextContour();
 
 void rgb2hsi();
 
-vector<string> images = {"Kreis.bmp", "KreisViertel.bmp", "KreisPunkte.bmp", "KreisHalb.bmp", "KreisGerade.bmp", "Kreis3Punkte.bmp", "Kreis2Punkte.bmp"};
-vector<string> imagesRGB = {"Spielzeug.bmp", "Rose.bmp", "Ferrari.bmp"};
+vector<string> images = {"Kreis.bmp", "KreisViertel.bmp", "KreisPunkte.bmp", "KreisHalb.bmp", "KreisGerade.bmp", "Kreis3Punkte.bmp", "Kreis2Punkte.bmp", "Ellipsen2.bmp"};
+vector<string> imagesRGB = {"Spielzeug.bmp", "Rose.bmp", "Ferrari.bmp", "Ellipsen.bmp"};
 
 
 int main(int argc, char *argv[]) {
     //copyChannel();
     //applyThresh();
     //applyMeanFilter();
-    //nextContour();
+    nextContour();
     rgb2hsi();
     return 0;
 }
@@ -115,7 +115,7 @@ void nextContour(){
         double my;
         double r;
         globalList.FitCircle(mx, my, r);
-        data[((int) my * testimage.GetWidth() + (int) mx)] = 255;
+        data[((int) my * testimage.GetWidth() + (int) mx)] = 125;
         testimage.WriteBmpFile((string(savePath).append("FitCircleDrawn").append("_").append(images[i])).c_str());
     }
 }

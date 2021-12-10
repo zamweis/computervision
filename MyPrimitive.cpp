@@ -29,7 +29,7 @@ bool CMyPrimitive::FitCircle(double &mx, double &my, double &r) {
         mx += m_points[i].m_x;
         my += m_points[i].m_y;
     }
-    if (mx != 0 && my != 0) {
+    if (mx != 0 && my != 0 && m != 0) {
         mx /= m;
         my /= m;
     }
@@ -39,10 +39,10 @@ bool CMyPrimitive::FitCircle(double &mx, double &my, double &r) {
         m_points[i].m_y -= my;
     }
     r = 0;
-    for (int i = 0; i < GetSize(); i++) {
+    for (int i = 0; i < m; i++) {
         r += sqrt(m_points[i].m_x * m_points[i].m_x + m_points[i].m_y * m_points[i].m_y);
     }
     r /= m;
-    //std::cout << "radius: " << r << ", mx: " << mx << ", my: " << my <<"\n";
+    std::cout << "radius: " << r << ", mx: " << mx << ", my: " << my <<"\n";
     return true;
 }
